@@ -1,0 +1,69 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+.wrapper {
+  background-color: rgb(251, 251, 251);
+}
+
+.navWrapper {
+  max-width: 1200px;
+  width: calc(100% - 16px);
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+}
+
+.navBox {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 8px solid $mainTextColor;
+}
+
+.contentSection {
+  margin-bottom: 60px;
+}
+
+.leftNav {
+  cursor: pointer;
+  display: flex;
+  padding: 36px 0 25px 0;
+  width: 114px;
+  & > h1 {
+    font-size: 36px;
+    font-weight: 800;
+    padding: 2px 0 0 0;
+    color: $mainColor;
+    @media #{$XSmall-Mobile} {
+      margin-left: 8px;
+    }
+  }
+  & > img {
+    width: 70px;
+    height: 70px;
+    @media #{$XSmall-Mobile} {
+      display: none;
+    }
+  }
+}
+
+.rightNav {
+  display: flex;
+  justify-content: flex-end;
+  width: 45%;
+  padding: 35px 0 25px 0;
+  font-size: 18px;
+  color: $mainTextColor;
+  button {
+    margin-right: 8px;
+  }
+}
+
+.loginBtn {
+  cursor: pointer;
+}
+
+.registerBtn {
+  margin: 0 0 0 34px;
+  cursor: pointer;
+}

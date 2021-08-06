@@ -1,0 +1,10 @@
+@import '../../../styles/variables';
+
+.mainTitle {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: $mainTextColor;
+  @media #{$XSmall-Mobile} {
+    font-size: 1.8rem;
+  }
+}

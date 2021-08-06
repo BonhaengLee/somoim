@@ -1,0 +1,9 @@
+@import "../../../styles/variables";
+
+.profileImage {
+  border-radius: 50%;
+  color: $mainTextColor5;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}

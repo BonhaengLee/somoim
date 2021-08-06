@@ -1,0 +1,381 @@
+@import "mixins";
+@import "variables";
+@import "fonts";
+//setting
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    text-decoration: none;
+    outline: none;
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $mainColor;
+        border-radius: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: #cdcdcd;
+        border-radius: 6px;
+        box-shadow: inset 0px 0px 5px white;
+    }
+}
+
+button,input[type="button"] {
+    cursor: pointer;
+    transition: all .3s;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.btn-fill {
+    background: $mainColor;
+    color: #fff;
+    border: 1px solid $mainColor;
+    &:hover {
+        background: $hoverColor;
+    }
+}
+
+.btn-line {
+    background: #fff;
+    color: $mainColor;
+    border: 1px solid $mainColor;
+    &:hover {
+        background: $hoverColor;
+        color: #fff;
+    }
+}
+
+.none {
+    display: none !important;
+}
+
+.icon {
+    filter: invert(80%) sepia(0%) saturate(0%) hue-rotate(84deg) brightness(102%) contrast(95%);
+}
+
+//body
+.body-inner {
+    margin-top: 74px;
+    background: #EBEDFF;
+    min-height: 100vh;
+    &.hasScroll {
+        margin-top: 0;
+    }
+    &.chapter-inner {
+        background: #fff;
+    }
+    .container {
+        margin: 0 auto;
+    }
+}
+
+//haeder
+.ai-header {
+    padding: 16px 24px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 99;
+    transition: all .3s;
+    &.hasScroll {
+        top: -74px;
+    }
+    &:after {
+        @include clearBoth;
+    }
+    .prev-page {
+        position: absolute;
+        left: 0;
+        top: 74px;
+        width: 99px;
+        height: 62px;
+        @include flexAllCenter;
+        border: 0;
+        // background: url(../assets/images/prev_bg.png) left top;
+        background-size: cover;
+        opacity: .7;
+        &:hover {
+            opacity: 1;
+        }
+        img {
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translate(0,-50%);
+        }
+    }
+    .logo-box {
+        position: absolute;
+        top: 50%;
+        left: 24px;
+        transform: translate(0,-50%);
+        @include flexAllCenter;
+        vertical-align: center;
+        img {
+            vertical-align: bottom;
+            height: 36px;
+            @media (max-width: 700px) {
+                height: 32px;
+            }
+        }
+    }
+    .btns-inner {
+        @include flexCenter;
+        float: right;
+        button {
+            padding: 8px 18px;
+            @include fontSize(16px,500);
+            border: 1px solid $mainColor;
+            border-radius: 25px;
+            margin-right: 12px;
+            transition: all .3s;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.lesson-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    .header-inner {
+        padding: 22px 0;
+        background: #fff;
+        @include flexAllCenter;
+        position: relative;
+        @media #{$XSmall-Mobile} {
+            padding: 0;
+            height: 48px;
+            width: 48px;
+            position: fixed;
+            top: 4px;
+            border-radius: 0 0 20px 0;
+            background: rgba(#fff,.5);
+        }
+        .prev-page {
+            cursor: pointer;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translate(0,-50%);
+            @include flexAllCenter;
+            width: 62px;
+            height: 62px;
+            @media #{$XSmall-Mobile} {
+                width: 48px;
+                height: 48px;
+                left: 0;
+                img {
+                    width: 36px;
+                    height: 36px;
+                }
+            }
+        }
+        ul {
+            @include flexCenter;
+            @media #{$XSmall-Mobile} {
+                display: none;
+            }
+            li {
+                margin-right: 15px;
+                position: relative;
+                color: #656C92;
+                @include fontSize(20px,400);
+                max-width: 200px;
+                display: block;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                @media #{$Small-Tablet} {
+                    max-width: 20vw;
+                }
+                &:last-child {
+                    margin-right: 0;
+                    @include fontSize(20px,500);
+                    color: #242E64;
+                }
+                &:nth-child(2n) {
+                    display: flex;
+                }
+            }
+        }
+    }
+    .progress-container {
+        width: 100%;
+        height: 4px;
+        background: #DCDFEE;
+    }
+    .progress-bar {
+        width: 0%;
+        height: 100%;
+        z-index:99;
+        max-width: 100%;
+        background: $mainColor;
+    }
+}
+
+//footer
+footer {
+    border-top: 1px solid #dcdfee;
+    padding: 30px 0 48px;
+    color: rgba(19, 24, 48, 0.8);
+    .footer-content {
+        max-width: 1200px;
+        width: calc( 100% - 48px );
+        margin: 0 auto;
+    }
+    .f_linkmsg {
+        display: flex;
+        margin-bottom: 15px;
+        .f_link:not(:first-child) {
+            margin-left: 16px;
+        }
+        .link {
+            color: inherit;
+            text-decoration: none;
+            cursor: default;
+            transition: all 0.3s ease;
+            &:link {
+                cursor: pointer;
+            }
+            &:hover {
+                color: rgba(19, 24, 48, 0.8);
+                font-family: Noto Sans CJK KR;
+                transition: all 0.3s ease;
+                span {
+                    &:after {
+                        font-family: Noto Sans CJK KR;
+                        content: '';
+                        width: 100%;
+                        left: 0px;
+                        height: 1px;
+                        display: block;
+                        position: absolute;
+                        border-bottom: 1px solid rgba(19, 24, 48, 0.8);
+                        transition: all 0.3s ease;
+                    }
+                }
+            }
+            span {
+                position: relative;
+                &:after {
+                    width: 100%;
+                    content: '';
+                    width: 0%;
+                    left: 50%;
+                    height: 1px;
+                    display: block;
+                    position: absolute;
+                    border-bottom: 1px solid rgba(19, 24, 48, 0.8);
+                    transition: all 0.3s ease;
+                }
+            }
+        }
+    }
+    .f_detailmsg {
+        .detail {
+            margin-bottom: 5px;
+            @include fontSize(14px,400);
+        }
+    }
+}
+
+//modal
+.modal-wrapper {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+    background: rgba(0, 16, 96, 0.6);
+    .modal-box {
+        background: #ffffff 0% 0% no-repeat padding-box;
+        border-radius: 8px;
+        opacity: 1;
+        padding: 48px 48px;
+    }
+}
+
+//floating
+.floating-btns {
+    position: fixed;
+    right: 0;
+    bottom: 200px;
+    transition: all .3s;
+    z-index: 3;
+    @media #{$Small-Tablet} {
+        bottom: 160px;
+    }
+    button {
+        outline: none;
+        @include flexCenter;
+        @include fontSize(16px,700);
+        background: $mainColor;
+        color: #fff;
+        border: 0;
+        padding: 16px;
+        border-radius: 28px 0 0 28px;
+        position: absolute;
+        right: -90px;
+        width: 140px;
+        &:nth-child(1) {
+            top: 68px;
+        }
+        &:nth-child(2) {
+            top: 0;
+        }
+        &:hover {
+            right: 0;
+        }
+        &.bookmark-on {
+            background: #FFE200;
+            span {
+                color: $mainColor;
+            }
+        }
+        @media #{$Small-Tablet} {
+            border-radius: 28px;
+            background: #fff;
+            box-shadow: 0px 3px 8px rgba(19,24,48,.2);
+            &:hover {
+                right: -90px;
+            }
+            span {
+                display: none;
+            }
+        }
+        img {
+            margin-right: 16px;
+            @media #{$Small-Tablet} {
+                margin-right: 0;
+                filter: invert(47%) sepia(6%) saturate(4603%) hue-rotate(196deg) brightness(93%) contrast(88%);
+                transition: all .3s;
+            }
+        }
+    }
+}
