@@ -1,9 +1,9 @@
 {
   "parser": "@typescript-eslint/parser", // typescript 전용 parser로 지정
-  "parserOptions": {
-    "project": "./tsconfig.json",
-    "sourceType": "module"
-  },
+  // "parserOptions": {
+  //   "project": "./tsconfig.json",
+  //   "sourceType": "module"
+  // },
   "env": {
     "node": true, // node 사용 OK
     "browser": true, // browser 인식 Ok
