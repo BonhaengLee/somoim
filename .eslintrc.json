@@ -9,7 +9,7 @@
     "browser": true, // browser 인식 Ok
     "es6": true // es6 버전사용 OK
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "react-hooks"],
   // react, react-hooks 가 있으면 Error Cannot get result from ~ 이 나옴.
   "extends": [
     "plugin:react/recommended", //recommended 붙여져 있는건 preset을 사용하겠다는 의미
@@ -36,7 +36,9 @@
     "react/jsx-filename-extension": "off", // <> </>쓰는 것 방지
     "spaced-comment": "off", // 주석 쓰는 것 방지
     "no-unused-variable": "off",
-    "@typescript-eslint/no-non-null-assertion": "off"
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "settings": {
     "react": {

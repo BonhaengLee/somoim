@@ -1,4 +1,4 @@
-@import "../../../styles/variables";
+@import '../../../styles/variables';
 
 .inputBox {
   font-size: 1.3rem;
@@ -10,5 +10,11 @@
   &:focus {
     outline: none;
     border-bottom: 2px solid $mainColor;
+  }
+  &::placeholder {
+    font-style: italic;
+    @media #{$XSmall-Mobile} {
+      font-size: 4vw;
+    }
   }
 }

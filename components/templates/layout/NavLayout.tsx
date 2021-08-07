@@ -1,39 +1,53 @@
 import React, { ReactNode, FC, ReactChildren } from 'react';
 import Link from 'next/link';
-import router from 'next/router';
 import styles from './NavLayout.module.scss';
-import Button from '../../atoms/button/Button';
 
 type PropTypes = {
   children: ReactNode;
 };
 
 const NavLayout: FC<PropTypes> = ({ children }: { children: ReactChildren }) => {
-  const goSignUp = () => {
-    router.push('/signup');
-  };
-
-  const goSignIn = () => {
-    router.push('/login');
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.navWrapper}>
         <div className={styles.navBox}>
           <Link href="/">
             <div className={styles.leftNav}>
-              <img src="./assets/logo.png" alt="" />
-              <h1>SOMOIM</h1>
+              <section>
+                <article>
+                  <img src="./assets/logo.png" alt="" />
+                  <h1>SOMOIM</h1>
+                </article>
+              </section>
             </div>
           </Link>
           <div className={styles.rightNav}>
-            <Link href="/login">
-              <Button handleClick={goSignIn}>로그인</Button>
-            </Link>
-            <Link href="/register">
-              <Button handleClick={goSignUp}>회원가입</Button>
-            </Link>
+            <span>
+              <Link href="/login">
+                <a>로그인</a>
+              </Link>
+            </span>
+            <span>
+              <div />
+              <Link href="/signup">
+                <a>회원가입</a>
+              </Link>
+            </span>
+          </div>
+        </div>
+        <div className={styles.categoryBox}>
+          <div className={styles.categoryNav}>
+            <span>
+              <Link href="/">
+                <a>홈</a>
+              </Link>
+            </span>
+            <span>
+              <div />
+              <Link href="/">
+                <a>인기</a>
+              </Link>
+            </span>
           </div>
         </div>
         <div className={styles.contentSection}>{children}</div>

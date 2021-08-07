@@ -3,11 +3,11 @@ import styles from './Button.module.scss';
 
 const Button = (props: {
   handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  disabled?: boolean;
   children: string;
 }): JSX.Element => {
-  // return <Btn onClick={props.handleClick}>{props.children}</Btn>;\
   return (
-    <button className={styles.btn} onClick={props.handleClick}>
+    <button className={styles.btn} onClick={props.handleClick} disabled={props.disabled}>
       {props.children}
     </button>
   );

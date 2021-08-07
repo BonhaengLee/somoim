@@ -1,28 +1,21 @@
 @import '../../../styles/variables';
 
-.loginWrapper {
-  max-width: 1200px;
-  width: calc(100% - 48px);
-  margin: 0 auto;
-  text-align: center;
-  color: #fff;
-  .container {
-    display: flex;
+.container {
+  display: flex;
+  height: 100%;
+  padding-top: 80px;
+  .image {
+    width: 50%;
+    min-width: 50%;
     height: 100%;
-    padding-top: 80px;
-    .image {
-      width: 50%;
-      min-width: 50%;
+    @media #{$Small-Tablet} {
+      display: none;
+    }
+    img {
+      max-height: 505px;
+      vertical-align: bottom;
+      width: 100%;
       height: 100%;
-      @media #{$Small-Tablet} {
-        display: none;
-      }
-      img {
-        max-height: 505px;
-        vertical-align: bottom;
-        width: 100%;
-        height: 100%;
-      }
     }
   }
 }

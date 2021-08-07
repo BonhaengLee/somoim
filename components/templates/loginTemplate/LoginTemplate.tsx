@@ -1,21 +1,52 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import router from 'next/router';
 import LoginForm from '../../organisms/loginForm/LoginForm';
 import styles from './LoginTemplate.module.scss';
+import { idCheckRgx, passwordCheckRgx } from '../signupTemplate/SignupTemplate';
 
 const LoginTemplate = (): JSX.Element => {
-  // const history = useHistory();
   const [loginInput, setLoginInput] = useState({
-    email: '',
+    id: '',
     password: '',
+  });
+
+  const [inputCheck, setInputCheck] = useState({
+    idCheck: true,
+    passwordCheck: true,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    console.log(loginInput.email, loginInput.password);
 
+    if (name === 'id')
+      !idCheckRgx(value)
+        ? setInputCheck({ ...inputCheck, idCheck: false })
+        : setInputCheck({ ...inputCheck, idCheck: true });
+    else if (name === 'password')
+      !passwordCheckRgx(value)
+        ? setInputCheck({ ...inputCheck, passwordCheck: false })
+        : setInputCheck({ ...inputCheck, passwordCheck: true });
     setLoginInput({ ...loginInput, [name]: value });
   };
+
+  const [disabled, setDisabled] = useState(true);
+  const logInRequest = () => {
+    if (!disabled) {
+      logIn();
+    }
+  };
+  const validAll =
+    loginInput.id !== '' &&
+    loginInput.password !== '' &&
+    inputCheck.idCheck &&
+    inputCheck.passwordCheck;
+  useEffect(() => {
+    if (validAll) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  }, [validAll]);
 
   const logIn = async () => {
     const r = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/user/logIn`, {
@@ -24,7 +55,7 @@ const LoginTemplate = (): JSX.Element => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        id: loginInput.email,
+        id: loginInput.id,
         pw: loginInput.password,
       }),
     });
@@ -39,21 +70,26 @@ const LoginTemplate = (): JSX.Element => {
       //   JSON.stringify(json.jwtToken).replace(/"/gi, '')
       // );
       // history.push('/login');
-      router.push('/login');
+      router.push('/');
     } else {
       alert(json.message);
     }
   };
 
   return (
-    <div className={styles.loginWrapper}>
-      <div className={styles.container}>
-        <picture className={styles.image}>
-          <img src="./assets/gather-banner.jpeg" alt="" />
-        </picture>
-        <LoginForm values={loginInput} handleChange={handleChange} handleSubmit={logIn} />
-      </div>
+    // <div className={styles.loginWrapper}>
+    <div className={styles.container}>
+      <picture className={styles.image}>
+        <img src="./assets/gather-banner.jpeg" alt="" />
+      </picture>
+      <LoginForm
+        values={loginInput}
+        handleChange={handleChange}
+        handleSubmit={logInRequest}
+        disabled={disabled}
+      />
     </div>
+    // </div>
   );
 };
 

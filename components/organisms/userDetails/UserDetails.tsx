@@ -2,18 +2,20 @@ import React from 'react';
 import Button from '../../atoms/button/Button';
 import MainTitle from '../../atoms/mainTitle/MainTitle';
 import UserInput from '../../atoms/userInput/UserInput';
-import styles from './UserDetails.module.scss'
+import styles from './UserDetails.module.scss';
 
 const UserDetails = (props: {
   nextStep: () => void;
   values: {
+    id: string;
     email: string;
     password: string;
-    passwordCheck: string;
+    passwordConfirm: string;
     nickname: string;
     birthDate: string;
   };
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled: boolean;
 }): JSX.Element => {
   const Continue = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
@@ -25,6 +27,15 @@ const UserDetails = (props: {
       <section>
         <MainTitle label="회원가입" />
       </section>
+      <div className={styles.bodySection}>
+        <UserInput
+          inputType="text"
+          name="id"
+          placeholder="아이디 입력"
+          value={props.values.id}
+          onChange={props.handleChange}
+        />
+      </div>
       <div className={styles.bodySection}>
         <UserInput
           inputType="email"
@@ -46,13 +57,15 @@ const UserDetails = (props: {
       <div className={styles.bodySection}>
         <UserInput
           inputType="password"
-          name="passwordCheck"
+          name="passwordConfirm"
           placeholder="비밀번호 확인"
-          value={props.values.passwordCheck}
+          value={props.values.passwordConfirm}
           onChange={props.handleChange}
         />
       </div>
-      <Button handleClick={Continue}>다음</Button>
+      <Button handleClick={Continue} disabled={props.disabled}>
+        다음
+      </Button>
     </div>
   );
 };

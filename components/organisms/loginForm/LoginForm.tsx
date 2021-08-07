@@ -6,11 +6,12 @@ import styles from './LoginForm.module.scss';
 
 const LoginForm = (props: {
   values: {
-    email: string;
+    id: string;
     password: string;
   };
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: () => void;
+  disabled: boolean;
 }): JSX.Element => {
   return (
     <div className={styles.container}>
@@ -19,10 +20,10 @@ const LoginForm = (props: {
       </section>
       <div className={styles.bodySection}>
         <UserInput
-          inputType="email"
-          name="email"
-          placeholder="이메일 입력"
-          value={props.values.email}
+          inputType="text"
+          name="id"
+          placeholder="아이디 입력"
+          value={props.values.id}
           onChange={props.handleChange}
         />
       </div>
@@ -36,7 +37,9 @@ const LoginForm = (props: {
         />
       </div>
       <div className={styles.footerSection}>
-        <Button handleClick={props.handleSubmit}>로그인</Button>
+        <Button handleClick={props.handleSubmit} disabled={props.disabled}>
+          로그인
+        </Button>
       </div>
     </div>
   );
