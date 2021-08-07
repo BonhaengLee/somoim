@@ -1,12 +1,8 @@
-import React, { ReactNode, FC, ReactChildren } from 'react';
+import React, { ReactNode, ReactChildren } from 'react';
 import Link from 'next/link';
 import styles from './NavLayout.module.scss';
 
-type PropTypes = {
-  children: ReactNode;
-};
-
-const NavLayout: FC<PropTypes> = ({ children }: { children: ReactChildren }) => {
+const NavLayout = ({ children }: { children: JSX.Element }) => {
   return (
     <div className={styles.container}>
       <div className={styles.navWrapper}>

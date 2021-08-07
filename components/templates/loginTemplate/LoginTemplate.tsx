@@ -4,7 +4,7 @@ import LoginForm from '../../organisms/loginForm/LoginForm';
 import styles from './LoginTemplate.module.scss';
 import { idCheckRgx, passwordCheckRgx } from '../signupTemplate/SignupTemplate';
 
-const LoginTemplate = (): JSX.Element => {
+const LoginTemplate = () => {
   const [loginInput, setLoginInput] = useState({
     id: '',
     password: '',
@@ -77,7 +77,6 @@ const LoginTemplate = (): JSX.Element => {
   };
 
   return (
-    // <div className={styles.loginWrapper}>
     <div className={styles.container}>
       <picture className={styles.image}>
         <img src="./assets/gather-banner.jpeg" alt="" />
@@ -89,7 +88,6 @@ const LoginTemplate = (): JSX.Element => {
         disabled={disabled}
       />
     </div>
-    // </div>
   );
 };
 

@@ -1,16 +1,16 @@
+import { AppProps } from 'next/dist/next-server/lib/router/router';
+import React from 'react';
 import MainLayout from '../components/templates/layout/MainLayout';
 import NavLayout from '../components/templates/layout/NavLayout';
 import '../styles/globals.scss';
 import '../styles/reset.css';
 
-function MyApp({ Component, pageProps }) {
-  const Layout = Component.Layout || NavLayout; //DefaultLayout;
-
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MainLayout>
-      <Layout>
+      <NavLayout>
         <Component {...pageProps} />
-      </Layout>
+      </NavLayout>
     </MainLayout>
   );
 }
