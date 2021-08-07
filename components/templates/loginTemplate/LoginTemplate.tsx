@@ -49,7 +49,7 @@ const LoginTemplate = (): JSX.Element => {
   }, [validAll]);
 
   const logIn = async () => {
-    const r = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/user/logIn`, {
+    const r = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/user/logIn`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

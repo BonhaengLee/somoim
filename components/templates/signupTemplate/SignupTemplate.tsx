@@ -131,8 +131,8 @@ const SignupTemplate = (): JSX.Element => {
   // email : 이메일 형식만 가능
   const signUp = (): void => {
     try {
-      fetch(`http://3.34.235.190:8080/user/signUp`, {
-        // fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/user/signUp`, {
+      // fetch(`http://3.34.235.190:8080/user/signUp`, {
+      fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/user/signUp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
