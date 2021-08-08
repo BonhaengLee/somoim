@@ -196,17 +196,14 @@ const SignupTemplate = (): JSX.Element => {
   // console.log(signupInput, Number(signupInput.birthDate.replaceAll('-', '')));
 
   return (
-    // <div className={styles.signupWrapper}>
     <div className={styles.container}>
       <picture className={styles.imageBox}>
-        {/* <img src="./assets/gather-banner-flower.png" alt="" /> */}
         <div>
           <Image src={banner} alt="" placeholder="blur" />
         </div>
       </picture>
       {changeForm()}
     </div>
-    // </div>
   );
 };
 
