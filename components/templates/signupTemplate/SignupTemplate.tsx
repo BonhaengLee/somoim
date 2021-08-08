@@ -196,7 +196,7 @@ const SignupTemplate = (): JSX.Element => {
   return (
     // <div className={styles.signupWrapper}>
     <div className={styles.container}>
-      <picture className={styles.image}>
+      <picture className={styles.imageBox}>
         <img src="./assets/gather-banner-flower.png" alt="" />
       </picture>
       {changeForm()}

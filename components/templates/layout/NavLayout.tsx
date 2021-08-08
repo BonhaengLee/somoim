@@ -1,4 +1,4 @@
-import React, { ReactNode, ReactChildren } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import styles from './NavLayout.module.scss';
 

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import router from 'next/router';
+import Image from 'next/image';
+import banner from '../../../public/assets/gather-banner.jpeg';
 import LoginForm from '../../organisms/loginForm/LoginForm';
 import styles from './LoginTemplate.module.scss';
 import { idCheckRgx, passwordCheckRgx } from '../signupTemplate/SignupTemplate';
@@ -78,8 +80,10 @@ const LoginTemplate = () => {
 
   return (
     <div className={styles.container}>
-      <picture className={styles.image}>
-        <img src="./assets/gather-banner.jpeg" alt="" />
+      <picture className={styles.imageBox}>
+        <div>
+          <Image src={banner} alt="" placeholder="blur" />
+        </div>
       </picture>
       <LoginForm
         values={loginInput}
