@@ -6,7 +6,6 @@
   .imageBox {
     width: 50%;
     min-width: 50%;
-
     @media #{$Small-Tablet} {
       display: none;
     }

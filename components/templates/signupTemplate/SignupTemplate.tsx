@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Router from 'next/router';
+import Image from 'next/image';
+import banner from '../../../public/assets/gather-banner-flower.png';
 import UserDetails from '../../organisms/userDetails/UserDetails';
 import PersonalDetails from '../../organisms/personalDetails/PersonalDetails';
 import styles from './SignupTemplate.module.scss';
@@ -197,7 +199,10 @@ const SignupTemplate = (): JSX.Element => {
     // <div className={styles.signupWrapper}>
     <div className={styles.container}>
       <picture className={styles.imageBox}>
-        <img src="./assets/gather-banner-flower.png" alt="" />
+        {/* <img src="./assets/gather-banner-flower.png" alt="" /> */}
+        <div>
+          <Image src={banner} alt="" placeholder="blur" />
+        </div>
       </picture>
       {changeForm()}
     </div>
