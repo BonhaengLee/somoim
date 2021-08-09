@@ -13,7 +13,7 @@ const NavLayout = ({ children }: { children: JSX.Element }) => {
             <div className={styles.leftNav}>
               <section>
                 <article>
-                  <img src="./assets/logo.png" alt="" />
+                  <img src="./assets/images/logo.png" alt="" />
                   <h1>SOMOIM</h1>
                 </article>
               </section>

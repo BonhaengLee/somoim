@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Router from 'next/router';
 import Image from 'next/image';
-import banner from '../../../public/assets/gather-banner-flower.png';
+import banner from '../../../public/assets/images/gather-banner-flower.png';
 import UserDetails from '../../organisms/userDetails/UserDetails';
 import PersonalDetails from '../../organisms/personalDetails/PersonalDetails';
 import styles from './SignupTemplate.module.scss';

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import router from 'next/router';
 import Image from 'next/image';
-import banner from '../../../public/assets/gather-banner.jpeg';
+import banner from '../../../public/assets/images/gather-banner.jpeg';
 import LoginForm from '../../organisms/loginForm/LoginForm';
 import styles from './LoginTemplate.module.scss';
 import { idCheckRgx, passwordCheckRgx } from '../signupTemplate/SignupTemplate';

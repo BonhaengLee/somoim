@@ -34,55 +34,163 @@ $red: #ff5e57;
 $yellow: #ffdd59;
 $blue: #3c40c6;
 $green: #05c46b;
-.container {
-  display: grid;
-  grid-gap: 20px;
-  // grid-auto-flow: column;
-  // 이건 gtc를 줄 때 default를 column으로 바꿔주는 용도인데 실수로 넣으신듯
-  grid-auto-rows: 160px;
-  // 안보이는 div 태그들을 row에 차례대로 200px로 보여줌. gta의 각 row는 200px씩
-  grid-template-areas:
-    'banner banner banner'
-    'banner banner banner'
-    'content content content' //side'
-    'footer footer footer';
-  div:first-child {
-    grid-area: banner;
-    background: $green;
-  }
-  .second {
-    grid-area: content;
-    background: $yellow;
-  }
-  .third {
-    grid-area: side;
-    background: $red;
-  }
-  .fourth {
-    grid-area: footer;
-    background: $blue;
+.bodyInner {
+  box-sizing: border-box;
+  &.homeFlexContainer {
+    background: white;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 0px;
+    width: 100%;
+    height: 100%;
+    .homeContainer {
+      width: 100%;
+      height: 100%;
+      // @media (max-width: 630px) {
+      //   margin-top: 80px;
+      // }
+      .homeWrapper {
+        // padding: 0px 0px 72px 0px;
+        // padding-right: 7.115vw;
+        // padding-left: 7.115vw;
+        // @media #{$XSmall-Web} {
+        //   padding: 0px 24px 6.272vw 24px;
+        // }
+        width: 100%;
+        height: 100%;
+        .homeBanner {
+          width: 100%;
+          height: 100%;
+          margin-bottom: 40px;
+          .bannerContents {
+            width: 100%;
+            height: 100%;
+            .swiperContainer {
+              height: 100%;
+              width: 100%;
+              margin-left: auto;
+              margin-right: auto;
+              .swiperSlide {
+                text-align: center;
+                font-size: 18px;
+                background: #fff;
+                /* Center slide text vertically */
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+                div {
+                  width: 100%;
+                  max-height: 360px;
+                  img {
+                    // display: block;
+                    width: 100%;
+                    height: 100%;
+                    // object-fit: cover;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .homeCategoryList {
+          display: flex;
+          flex-direction: column;
+          margin: 0 auto;
+          margin-bottom: 40px;
+          width: calc(100% - 48px);
+          height: 360px;
+          background: lightsalmon;
+          .homeCategoryHeader {
+            width: 100%;
+            h2 {
+              width: 100%;
+              margin-bottom: 40px;
+            }
+            ul {
+              width: 100%;
+              display: flex;
+              flex-wrap: wrap;
+              li {
+                padding-bottom: 20px;
+                flex: 1 1 14%;
+                /* flex-grow: 1; flex-shrink: 1;아이템이 flex-basis보다 작아질 수 있음 flex-basis: 14%; */
+                text-align: center;
+                @media (max-width: 516px) {
+                  flex: 1 1 25%;
+                }
+                &:last-child {
+                  button {
+                    @include btnNone();
+                    font-size: 1rem;
+                    padding: 10px;
+                    @media (max-width: 684px) {
+                      font-size: 13px;
+                    }
+                    img {
+                      width: 100px;
+                      height: 100px;
+                      @media (max-width: 900px) {
+                        width: 70px;
+                        height: 70px;
+                      }
+                      @media (max-width: 684px) {
+                        width: 7.84vw;
+                        height: 7.84vw;
+                      }
+                    }
+                  }
+                }
+                button {
+                  @include btnNone();
+                  font-size: 1rem;
+                  padding: 10px;
+                  @media (max-width: 684px) {
+                    font-size: 13px;
+                  }
+                  img {
+                    width: 100px;
+                    height: 100px;
+                    @media (max-width: 900px) {
+                      width: 70px;
+                      height: 70px;
+                    }
+                    @media (max-width: 684px) {
+                      width: 7.84vw;
+                      height: 7.84vw;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .homeItemList {
+          display: flex;
+          margin: 0 auto;
+          width: calc(100% - 48px);
+          height: 360px;
+          background: lightseagreen;
+          .homeItemHeader {
+            width: 100%;
+            h2 {
+              width: 100%;
+            }
+            ul {
+              width: 100%;
+              display: flex;
+            }
+          }
+        }
+      }
+    }
   }
 }
-
-// $red: #ff5e57;
-// $yellow: #ffdd59;
-// $blue: #3c40c6;
-// $green: #05c46b;
-// .container {
-//   display: grid;
-//   grid-gap: 5px;
-//   grid-auto-rows: 200px;
-//   // grid-template-columns: 1fr 2fr 3fr 4fr;
-//   // grid-template-columns: repeat(1, 1fr);
-//   // grid-template-columns: repeat(auto-fill, 2, 1fr) 4fr;
-//   // repeat으로 만든 다음 우측에 더 추가하기
-//   // grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
-//   // grid-template-rows: repeat(auo-fit, minmax(200px, 4fr));
-//   justify-content: center;
-//   div:nth-child(even) {
-//     background: $yellow;
-//   }
-//   div:nth-child(odd) {
-//     background: $blue;
-//   }
-// }
