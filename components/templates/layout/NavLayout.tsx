@@ -3,6 +3,8 @@ import Link from 'next/link';
 import styles from './NavLayout.module.scss';
 
 const NavLayout = ({ children }: { children: JSX.Element }) => {
+  console.log(children.type['name']);
+
   return (
     <div className={styles.container}>
       <div className={styles.navWrapper}>
@@ -46,8 +48,8 @@ const NavLayout = ({ children }: { children: JSX.Element }) => {
             </span>
           </div>
         </div>
-        <div className={styles.contentSection}>{children}</div>
       </div>
+      <div className={styles.contentSection}>{children}</div>
     </div>
   );
 };

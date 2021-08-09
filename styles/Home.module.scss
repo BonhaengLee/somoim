@@ -29,3 +29,60 @@
     padding-top: 80px;
   }
 }
+
+$red: #ff5e57;
+$yellow: #ffdd59;
+$blue: #3c40c6;
+$green: #05c46b;
+.container {
+  display: grid;
+  grid-gap: 20px;
+  // grid-auto-flow: column;
+  // 이건 gtc를 줄 때 default를 column으로 바꿔주는 용도인데 실수로 넣으신듯
+  grid-auto-rows: 160px;
+  // 안보이는 div 태그들을 row에 차례대로 200px로 보여줌. gta의 각 row는 200px씩
+  grid-template-areas:
+    'banner banner banner'
+    'banner banner banner'
+    'content content content' //side'
+    'footer footer footer';
+  div:first-child {
+    grid-area: banner;
+    background: $green;
+  }
+  .second {
+    grid-area: content;
+    background: $yellow;
+  }
+  .third {
+    grid-area: side;
+    background: $red;
+  }
+  .fourth {
+    grid-area: footer;
+    background: $blue;
+  }
+}
+
+// $red: #ff5e57;
+// $yellow: #ffdd59;
+// $blue: #3c40c6;
+// $green: #05c46b;
+// .container {
+//   display: grid;
+//   grid-gap: 5px;
+//   grid-auto-rows: 200px;
+//   // grid-template-columns: 1fr 2fr 3fr 4fr;
+//   // grid-template-columns: repeat(1, 1fr);
+//   // grid-template-columns: repeat(auto-fill, 2, 1fr) 4fr;
+//   // repeat으로 만든 다음 우측에 더 추가하기
+//   // grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
+//   // grid-template-rows: repeat(auo-fit, minmax(200px, 4fr));
+//   justify-content: center;
+//   div:nth-child(even) {
+//     background: $yellow;
+//   }
+//   div:nth-child(odd) {
+//     background: $blue;
+//   }
+// }
