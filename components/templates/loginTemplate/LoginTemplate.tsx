@@ -62,7 +62,7 @@ const LoginTemplate = () => {
       }),
     });
     const json = await r.json();
-    console.log(json);
+    // console.log(json);
     const status = r.status;
 
     if (status === 200) {
@@ -74,7 +74,7 @@ const LoginTemplate = () => {
       // history.push('/login');
       router.push('/');
     } else {
-      alert(json.message);
+      alert(`${r.status} ${json.message}`);
     }
   };
 
