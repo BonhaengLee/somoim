@@ -4,13 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import banner from '../public/assets/images/gather-banner.jpeg';
 import banner2 from '../public/assets/images/gather-banner-flower.png';
-import exercise from '../public/assets/icons/icon-exercise.png';
-// import banner2 from '../public/assets/images/gather-banner-flower.png';
-// import banner2 from '../public/assets/images/gather-banner-flower.png';
-// import banner2 from '../public/assets/images/gather-banner-flower.png';
-// import banner2 from '../public/assets/images/gather-banner-flower.png';
-// import banner2 from '../public/assets/images/gather-banner-flower.png';
-// import banner2 from '../public/assets/images/gather-banner-flower.png';
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
