@@ -4,7 +4,7 @@ import Image from 'next/image';
 import banner from '../../../public/assets/images/gather-banner.jpeg';
 import LoginForm from '../../organisms/loginForm/LoginForm';
 import styles from './LoginTemplate.module.scss';
-import { idCheckRgx, passwordCheckRgx } from '../signupTemplate/SignupTemplate';
+import { idCheckRgx, passwordCheckRgx } from '../../../services/validationCheck';
 
 const LoginTemplate = () => {
   const [loginInput, setLoginInput] = useState({

@@ -4,10 +4,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import banner from '../public/assets/images/gather-banner.jpeg';
 import banner2 from '../public/assets/images/gather-banner-flower.png';
+import { useEffect, useState } from 'react';
+import { getPhotos } from './api';
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
-export default function Home() {
+export default function Home(props: { imageDynamic: string }) {
+  console.log('home', props.imageDynamic);
+  // const [photo, setPhoto] = useState();
+
   return (
     <main className={`${styles.bodyInner} ${styles.homeFlexContainer}`}>
       <div className={styles.homeContainer}>
@@ -31,6 +36,12 @@ export default function Home() {
                 <SwiperSlide className={styles.swiperSlide}>
                   <div>
                     <Image src={banner} alt="" placeholder="blur" />
+                    {/* <Image
+                      src="https://source.unsplash.com/1400x360/?people,talk"
+                      alt="Galaxy"
+                      width={1000}
+                      height={750}
+                    /> */}
                   </div>
                 </SwiperSlide>
                 <SwiperSlide className={styles.swiperSlide}>
@@ -96,6 +107,7 @@ export default function Home() {
                     </button>
                   </li>
                 ))}
+                <li className="blank"></li>
               </ul>
             </article>
           </section>
@@ -118,3 +130,11 @@ export default function Home() {
     </main>
   );
 }
+
+// export async function getStaticProps({ params }) {
+//   const image = await getPhotos(); // fetch your data;
+//   // const imageDynamic = image[param.id]; //pass the prop from the url
+//   console.log('img', image);
+
+//   return { props: { imageDynamic: image || null } };
+// }
