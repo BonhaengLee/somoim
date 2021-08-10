@@ -107,13 +107,21 @@ $green: #05c46b;
           margin: 0 auto;
           margin-bottom: 40px;
           width: calc(100% - 48px);
-          height: 360px;
-          background: lightsalmon;
+          height: 200px;
+          // background: lightsalmon;
+          @media (max-width: 800px) {
+            height: 25vw;
+          }
+          @media (max-width: 520px) {
+            height: 210px;
+          }
           .homeCategoryHeader {
             width: 100%;
             h2 {
               width: 100%;
               margin-bottom: 40px;
+              font-size: 1.2rem;
+              font-weight: 600;
             }
             ul {
               width: 100%;
@@ -131,18 +139,14 @@ $green: #05c46b;
                   button {
                     @include btnNone();
                     font-size: 1rem;
-                    padding: 10px;
-                    @media (max-width: 684px) {
+                    @media (max-width: 585px) {
                       font-size: 13px;
                     }
                     img {
-                      width: 100px;
-                      height: 100px;
+                      width: 70px;
+                      height: 70px;
+                      margin-bottom: 5px;
                       @media (max-width: 900px) {
-                        width: 70px;
-                        height: 70px;
-                      }
-                      @media (max-width: 684px) {
                         width: 7.84vw;
                         height: 7.84vw;
                       }
@@ -152,18 +156,14 @@ $green: #05c46b;
                 button {
                   @include btnNone();
                   font-size: 1rem;
-                  padding: 10px;
-                  @media (max-width: 684px) {
+                  @media (max-width: 585px) {
                     font-size: 13px;
                   }
                   img {
-                    width: 100px;
-                    height: 100px;
+                    width: 70px;
+                    height: 70px;
+                    margin-bottom: 5px;
                     @media (max-width: 900px) {
-                      width: 70px;
-                      height: 70px;
-                    }
-                    @media (max-width: 684px) {
                       width: 7.84vw;
                       height: 7.84vw;
                     }
@@ -175,14 +175,19 @@ $green: #05c46b;
         }
         .homeItemList {
           display: flex;
+          flex-direction: column;
           margin: 0 auto;
+          margin-bottom: 40px;
           width: calc(100% - 48px);
-          height: 360px;
+          height: 258px;
           background: lightseagreen;
           .homeItemHeader {
             width: 100%;
             h2 {
               width: 100%;
+              margin-bottom: 10px;
+              font-size: 1.2rem;
+              font-weight: 600;
             }
             ul {
               width: 100%;
