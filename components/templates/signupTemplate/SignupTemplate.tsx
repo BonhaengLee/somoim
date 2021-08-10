@@ -196,13 +196,15 @@ const SignupTemplate = (): JSX.Element => {
   // console.log(signupInput, Number(signupInput.birthDate.replaceAll('-', '')));
 
   return (
-    <div className={styles.container}>
-      <picture className={styles.imageBox}>
-        <div>
-          <Image src={banner} alt="" placeholder="blur" />
-        </div>
-      </picture>
-      {changeForm()}
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <picture className={styles.imageBox}>
+          <div>
+            <Image src={banner} alt="" placeholder="blur" />
+          </div>
+        </picture>
+        {changeForm()}
+      </div>
     </div>
   );
 };
