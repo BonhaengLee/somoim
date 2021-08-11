@@ -1,8 +1,8 @@
 import { AppProps } from 'next/dist/next-server/lib/router/router';
 import React from 'react';
 import { ReactQueryDevtools } from 'react-query-devtools';
-import MainLayout from '../components/templates/layout/MainLayout';
-import NavLayout from '../components/templates/layout/NavLayout';
+import MainLayout from './layout/MainLayout';
+import NavLayout from './layout/NavLayout';
 import '../styles/globals.scss';
 import '../styles/reset.css';
 import 'swiper/swiper.scss';

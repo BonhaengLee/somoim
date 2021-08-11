@@ -1,7 +1,7 @@
-@import '../../../styles/variables';
+@import '../../styles/variables';
 
 .wrapper {
-  padding-top: 25px;
+  padding-top: 30px;
   .container {
     display: flex;
     .imageBox {
@@ -13,11 +13,9 @@
       div {
         width: 100%;
         img {
-          max-height: 590px;
-          vertical-align: bottom;
+          max-height: 505px;
           width: 100%;
-          height: 522px;
-          object-fit: fill;
+          height: 100%;
         }
       }
     }

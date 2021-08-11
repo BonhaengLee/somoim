@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Router from 'next/router';
 import Image from 'next/image';
-import banner from '../../../public/assets/images/gather-banner-flower.png';
-import UserDetails from '../../organisms/userDetails/UserDetails';
-import PersonalDetails from '../../organisms/personalDetails/PersonalDetails';
-import styles from './SignupTemplate.module.scss';
+import banner from '../../public/assets/images/gather-banner-flower.png';
+import UserDetails from '../../components/organisms/userDetails/UserDetails';
+import PersonalDetails from '../../components/organisms/personalDetails/PersonalDetails';
+import styles from './signup.module.scss';
 import {
   emailCheckRgx,
   idCheckRgx,
   nicknameCheckRgx,
   passwordCheckRgx,
-} from '../../../services/validationCheck';
+} from '../../services/validationCheck';
 
-const SignupTemplate = (): JSX.Element => {
+const Signup = (): JSX.Element => {
   const [step, setStep] = useState(1);
   const [signupInput, setSignupInput] = useState({
     id: '',
@@ -189,4 +189,4 @@ const SignupTemplate = (): JSX.Element => {
   );
 };
 
-export default SignupTemplate;
+export default Signup;

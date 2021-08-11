@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import router from 'next/router';
 import Image from 'next/image';
-import banner from '../../../public/assets/images/gather-banner.jpeg';
-import LoginForm from '../../organisms/loginForm/LoginForm';
-import styles from './LoginTemplate.module.scss';
-import { idCheckRgx, passwordCheckRgx } from '../../../services/validationCheck';
+import banner from '../../public/assets/images/gather-banner.jpeg';
+import LoginForm from '../../components/organisms/loginForm/LoginForm';
+import styles from './login.module.scss';
+import { idCheckRgx, passwordCheckRgx } from '../../services/validationCheck';
 
-const LoginTemplate = () => {
+const Login = () => {
   const [loginInput, setLoginInput] = useState({
     id: '',
     password: '',
@@ -97,4 +97,4 @@ const LoginTemplate = () => {
   );
 };
 
-export default LoginTemplate;
+export default Login;
