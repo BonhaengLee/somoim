@@ -5,8 +5,11 @@ import banner from '../../public/assets/images/gather-banner.jpeg';
 import LoginForm from '../../components/organisms/loginForm/LoginForm';
 import styles from './login.module.scss';
 import { idCheckRgx, passwordCheckRgx } from '../../services/validationCheck';
+import { useAuth } from '../../lib/auth';
 
 const Login = () => {
+  const { login } = useAuth();
+
   const [loginInput, setLoginInput] = useState({
     id: '',
     password: '',
@@ -32,9 +35,16 @@ const Login = () => {
   };
 
   const [disabled, setDisabled] = useState(true);
+  const [error, setError] = useState(null);
   const logInRequest = () => {
     if (!disabled) {
-      logIn();
+      // logIn();
+      try {
+        // await logIn();    //await login(values);
+        router.push('/');
+      } catch (err) {
+        setError(err);
+      }
     }
   };
   const validAll =
@@ -50,37 +60,36 @@ const Login = () => {
     }
   }, [validAll]);
 
-  const logIn = async () => {
-    const r = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/user/logIn`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        id: loginInput.id,
-        pw: loginInput.password,
-      }),
-    });
-    const json = await r.json();
-    console.log(json);
-    const status = r.status;
+  // const logIn = async () => {
+  //   const r = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/user/logIn`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       id: loginInput.id,
+  //       pw: loginInput.password,
+  //     }),
+  //   });
+  //   const json = await r.json();
+  //   console.log(json);
+  //   const status = r.status;
 
-    if (status === 200) {
-      // login(json.user);
-      localStorage.setItem(
-        'RefreshToken',
-        JSON.stringify(json.RefreshToken).replace(/"/gi, '')
-      );
-      localStorage.setItem(
-        'AccessToken',
-        JSON.stringify(json.AccessToken).replace(/"/gi, '')
-      );
-      // history.push('/login');
-      router.push('/');
-    } else {
-      alert(`${r.status} ${json.message}`);
-    }
-  };
+  //   if (status === 200) {
+  //     // login(json.user);
+  //     localStorage.setItem(
+  //       'RefreshToken',
+  //       JSON.stringify(json.RefreshToken).replace(/"/gi, '')
+  //     );
+  //     localStorage.setItem(
+  //       'AccessToken',
+  //       JSON.stringify(json.AccessToken).replace(/"/gi, '')
+  //     );
+  //     router.push('/');
+  //   } else {
+  //     alert(`${r.status} ${json.message}`);
+  //   }
+  // };
 
   return (
     <div className={styles.wrapper}>
