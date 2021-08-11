@@ -35,15 +35,16 @@ const Login = () => {
   };
 
   const [disabled, setDisabled] = useState(true);
-  const [error, setError] = useState(null);
-  const logInRequest = () => {
+  // const [error, setError] = useState(null);
+  const logInRequest = async () => {
     if (!disabled) {
       // logIn();
       try {
-        // await logIn();    //await login(values);
+        await login({ id: loginInput.id, password: loginInput.password }); //await login(values);
         router.push('/');
       } catch (err) {
-        setError(err);
+        // setError(err.errorMessage);
+        alert(err.errorMessage);
       }
     }
   };

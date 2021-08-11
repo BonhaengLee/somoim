@@ -7,7 +7,11 @@ const Button = (props: {
   children: string;
 }): JSX.Element => {
   return (
-    <button className={styles.btn} onClick={props.handleClick} disabled={props.disabled}>
+    <button
+      className={styles.btn}
+      onClick={props.handleClick}
+      disabled={props.disabled}
+    >
       {props.children}
     </button>
   );
