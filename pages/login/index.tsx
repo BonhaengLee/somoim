@@ -62,15 +62,19 @@ const Login = () => {
       }),
     });
     const json = await r.json();
-    // console.log(json);
+    console.log(json);
     const status = r.status;
 
     if (status === 200) {
       // login(json.user);
-      // localStorage.setItem(
-      //   'token',
-      //   JSON.stringify(json.jwtToken).replace(/"/gi, '')
-      // );
+      localStorage.setItem(
+        'RefreshToken',
+        JSON.stringify(json.RefreshToken).replace(/"/gi, '')
+      );
+      localStorage.setItem(
+        'AccessToken',
+        JSON.stringify(json.AccessToken).replace(/"/gi, '')
+      );
       // history.push('/login');
       router.push('/');
     } else {
