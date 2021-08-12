@@ -4,8 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import banner from '../public/assets/images/gather-banner.jpeg';
 import banner2 from '../public/assets/images/gather-banner-flower.png';
-import { useEffect, useState } from 'react';
-import { getPhotos } from './api';
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
