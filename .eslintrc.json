@@ -1,5 +1,4 @@
 {
-  "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "env": {
@@ -22,7 +21,8 @@
         "printWidth": 80,
         "bracketSpacing": true,
         "arrowParens": "always",
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "trailingComma": "es5"
       }
     ],
     "react/no-unescaped-entities": 0,

@@ -59,31 +59,6 @@ export default function Home(props: { imageDynamic: string }) {
                     <Image src={banner2} alt="" placeholder="blur" />
                   </div>
                 </SwiperSlide>
-                <SwiperSlide className={styles.swiperSlide}>
-                  <div>
-                    <Image src={banner} alt="" placeholder="blur" />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className={styles.swiperSlide}>
-                  <div>
-                    <Image src={banner2} alt="" placeholder="blur" />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className={styles.swiperSlide}>
-                  <div>
-                    <Image src={banner} alt="" placeholder="blur" />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className={styles.swiperSlide}>
-                  <div>
-                    <Image src={banner2} alt="" placeholder="blur" />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className={styles.swiperSlide}>
-                  <div>
-                    <Image src={banner} alt="" placeholder="blur" />
-                  </div>
-                </SwiperSlide>
               </Swiper>
             </div>
           </div>
@@ -94,11 +69,23 @@ export default function Home(props: { imageDynamic: string }) {
                 {[
                   { label: '운동', url: './assets/icons/icon-exercise.png' },
                   { label: '공부', url: './assets/icons/icon-studying.png' },
-                  { label: '생활습관', url: './assets/icons/icon-lifestyle.png' },
+                  {
+                    label: '생활습관',
+                    url: './assets/icons/icon-lifestyle.png',
+                  },
                   { label: '취미', url: './assets/icons/icon-hobby.png' },
-                  { label: '감정관리', url: './assets/icons/icon-mindControl.png' },
-                  { label: '돈관리', url: './assets/icons/icon-financialManagement.png' },
-                  { label: '외국어', url: './assets/icons/icon-foreignLanguage.png' },
+                  {
+                    label: '감정관리',
+                    url: './assets/icons/icon-mindControl.png',
+                  },
+                  {
+                    label: '돈관리',
+                    url: './assets/icons/icon-financialManagement.png',
+                  },
+                  {
+                    label: '외국어',
+                    url: './assets/icons/icon-foreignLanguage.png',
+                  },
                 ].map((item, idx) => (
                   <li key={idx}>
                     <button onClick={() => console.log(item.label)}>
@@ -115,13 +102,19 @@ export default function Home(props: { imageDynamic: string }) {
             <article className={styles.homeItemHeader}>
               <h2>모임</h2>
               <ul>
-                {['운동', '공부', '생활습관', '취미', '감정관리', '돈관리', '외국어'].map(
-                  (item, idx) => (
-                    <li key={idx}>
-                      <button onClick={() => console.log(item)}>{item}</button>
-                    </li>
-                  ),
-                )}
+                {[
+                  '운동',
+                  '공부',
+                  '생활습관',
+                  '취미',
+                  '감정관리',
+                  '돈관리',
+                  '외국어',
+                ].map((item, idx) => (
+                  <li key={idx}>
+                    <button onClick={() => console.log(item)}>{item}</button>
+                  </li>
+                ))}
               </ul>
             </article>
           </section>

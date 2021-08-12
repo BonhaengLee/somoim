@@ -1,8 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './NavLayout.module.scss';
+import { useAuth } from '../../lib/auth';
+import GetOutButton from '../../components/atoms/getOutButton/GetOutButton';
 
 const NavLayout = ({ children }: { children: JSX.Element }) => {
+  const { user, logout } = useAuth();
+  console.log(Boolean(user));
+
   return (
     <div className={styles.container}>
       <div className={styles.navWrapper}>
@@ -18,17 +23,27 @@ const NavLayout = ({ children }: { children: JSX.Element }) => {
             </div>
           </Link>
           <div className={styles.rightNav}>
-            <span>
-              <Link href="/login">
-                <a>로그인</a>
-              </Link>
-            </span>
-            <span>
-              <div />
-              <Link href="/signup">
-                <a>회원가입</a>
-              </Link>
-            </span>
+            {user ? (
+              <span>
+                <GetOutButton handleClick={() => logout()}>
+                  로그아웃
+                </GetOutButton>
+              </span>
+            ) : (
+              <>
+                <span>
+                  <Link href="/login">
+                    <a>로그인</a>
+                  </Link>
+                </span>
+                <span>
+                  <div />
+                  <Link href="/signup">
+                    <a>회원가입</a>
+                  </Link>
+                </span>
+              </>
+            )}
           </div>
         </div>
         <div className={styles.categoryBox}>

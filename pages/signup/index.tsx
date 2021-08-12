@@ -99,7 +99,11 @@ const Signup = (): JSX.Element => {
   ]);
 
   useEffect(() => {
-    if (signupInput.nickname !== '' && signupInput.birthDate !== '' && inputCheck.nicknameCheck) {
+    if (
+      signupInput.nickname !== '' &&
+      signupInput.birthDate !== '' &&
+      inputCheck.nicknameCheck
+    ) {
       setDisabledPersonalDt(false);
     } else {
       setDisabledPersonalDt(true);

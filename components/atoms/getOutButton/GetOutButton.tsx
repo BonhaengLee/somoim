@@ -1,0 +1,20 @@
+import React from 'react';
+import styles from './GetOutButton.module.scss';
+
+const GetOutButton = (props: {
+  handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  disabled?: boolean;
+  children: string;
+}): JSX.Element => {
+  return (
+    <button
+      className={styles.GetOutBtn}
+      onClick={props.handleClick}
+      disabled={props.disabled}
+    >
+      {props.children}
+    </button>
+  );
+};
+
+export default GetOutButton;

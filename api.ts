@@ -11,8 +11,6 @@ export interface User {
   name?: string;
 }
 
-const API_URL = 'http://3.34.235.190:8080';
-
 export async function handleApiResponse(response) {
   const data = await response.json();
 
@@ -24,18 +22,18 @@ export async function handleApiResponse(response) {
 }
 
 // userprofile 넘어오는 유저 데이터 없음, jwt로 임시
-export async function getUserProfile() {
-  return await fetch(`${API_URL}/user/logIn`, {
-    headers: {
-      // Authorization: storage.getToken()
-      'Content-Type': 'application/json', // 없던 것
-    },
-  }).then(handleApiResponse);
-}
+// export async function getUserProfile() {
+//   return await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/user/logIn`, {
+//     headers: {
+//       // Authorization: storage.getToken()
+//       'Content-Type': 'application/json', // 없던 것
+//     },
+//   }).then(handleApiResponse);
+// }
 
 export async function loginWithIdAndPassword(data): Promise<AuthResponse> {
   return window
-    .fetch(`${API_URL}/user/logIn`, {
+    .fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/user/logIn`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -45,9 +43,11 @@ export async function loginWithIdAndPassword(data): Promise<AuthResponse> {
     .then(handleApiResponse);
 }
 
-export async function registerWithEmailAndPassword(data): Promise<AuthResponse> {
+export async function registerWithEmailAndPassword(
+  data
+): Promise<AuthResponse> {
   return window
-    .fetch(`${API_URL}/auth/register`, {
+    .fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/auth/register`, {
       method: 'POST',
       body: JSON.stringify(data),
     })

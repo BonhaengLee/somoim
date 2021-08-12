@@ -35,15 +35,15 @@ const Login = () => {
   };
 
   const [disabled, setDisabled] = useState(true);
-  // const [error, setError] = useState(null);
   const logInRequest = async () => {
     if (!disabled) {
-      // logIn();
       try {
-        await login({ id: loginInput.id, password: loginInput.password }); //await login(values);
+        await login({
+          id: loginInput.id,
+          pw: loginInput.password,
+        });
         router.push('/');
       } catch (err) {
-        // setError(err.errorMessage);
         alert(err.errorMessage);
       }
     }
@@ -62,16 +62,19 @@ const Login = () => {
   }, [validAll]);
 
   // const logIn = async () => {
-  //   const r = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/user/logIn`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       id: loginInput.id,
-  //       pw: loginInput.password,
-  //     }),
-  //   });
+  //   const r = await fetch(
+  //     `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/user/logIn`,
+  //     {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         id: loginInput.id,
+  //         pw: loginInput.password,
+  //       }),
+  //     }
+  //   );
   //   const json = await r.json();
   //   console.log(json);
   //   const status = r.status;
