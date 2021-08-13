@@ -180,35 +180,10 @@ $green: #05c46b;
           margin-bottom: 40px;
           width: calc(100% - 48px);
           height: 258px;
-          .homeItemHeader {
-            width: 100%;
-            h2 {
-              width: 100%;
-              margin-bottom: 10px;
-              font-size: 1.2rem;
-              font-weight: 600;
-            }
-            ul {
-              width: 100%;
-              display: flex;
-              flex-wrap: wrap;
-              border-bottom: 1px solid rgba(217, 217, 223, 0.3);
-              li {
-                flex: 1 1 14%;
-                text-align: center;
-                @media (max-width: 516px) {
-                  flex: 1 1 25%;
-                }
-                button {
-                  @include btnNone();
-                  font-size: 1.2rem;
-                  margin-bottom: 10px;
-                }
-              }
-            }
-          }
+          
         }
       }
     }
   }
 }
+
