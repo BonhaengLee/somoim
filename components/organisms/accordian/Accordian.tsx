@@ -84,9 +84,8 @@ const Accordian = (props): JSX.Element => {
       <h2>모임</h2>
       <Tabs onChange={handleChange} />
       <section>
-        {changeTab?.map((item, idx) => (
+        {changeTab?.map((item) => (
           <article key={item.id}>
-            {/* <section> */}
             <Image src={banner} alt="" />
             <p>{item.title}</p>
             <p>{item.startDate}</p>
@@ -95,7 +94,6 @@ const Accordian = (props): JSX.Element => {
                 <p>{item}</p>
               </span>
             ))}
-            {/* </section> */}
           </article>
         ))}
       </section>
