@@ -26,20 +26,12 @@
       }
       img {
         margin: 10px;
-        // height: 150px;
-        // width: 250px;
-        // @media (max-width: 1500px) {
         height: 12.5vw;
         width: 20.83vw;
-        // }
         @media (max-width: 1000px) {
           height: 21.25vw;
           width: 33.75vw;
         }
-        // @media (max-width: 800px) {
-        //   height: 21.25vw;
-        //   width: 33.75vw;
-        // }
         @media (max-width: 500px) {
           height: 50vw;
           width: 78vw;
