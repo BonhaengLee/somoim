@@ -4,11 +4,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import banner from '../public/assets/images/gather-banner.jpeg';
 import banner2 from '../public/assets/images/gather-banner-flower.png';
+import Accordian from '../components/organisms/accordian/Accordian';
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
 export default function Home(props: { imageDynamic: string }) {
-  console.log('home', props.imageDynamic);
+  // console.log('home', props.imageDynamic);
   // const [photo, setPhoto] = useState();
 
   return (
@@ -97,24 +98,7 @@ export default function Home(props: { imageDynamic: string }) {
             </article>
           </section>
           <section className={styles.homeItemList}>
-            <article className={styles.homeItemHeader}>
-              <h2>모임</h2>
-              <ul>
-                {[
-                  '운동',
-                  '공부',
-                  '생활습관',
-                  '취미',
-                  '감정관리',
-                  '돈관리',
-                  '외국어',
-                ].map((item, idx) => (
-                  <li key={idx}>
-                    <button onClick={() => console.log(item)}>{item}</button>
-                  </li>
-                ))}
-              </ul>
-            </article>
+            <Accordian />
           </section>
         </div>
       </div>

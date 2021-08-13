@@ -3,14 +3,15 @@ import Link from 'next/link';
 import styles from './NavLayout.module.scss';
 import { useAuth } from '../../lib/auth';
 import GetOutButton from '../../components/atoms/getOutButton/GetOutButton';
+import BorderButton from '../../components/atoms/borderButton/BorderButton';
+import router from 'next/router';
 
 const NavLayout = ({ children }: { children: JSX.Element }) => {
-  const { user, logout } = useAuth();
-  console.log(Boolean(user));
+  const { user, logout } = useAuth(); // user 현재 jwt
 
   return (
     <div className={styles.container}>
-      <div className={styles.navWrapper}>
+      <nav className={styles.navWrapper}>
         <div className={styles.navBox}>
           <Link href="/">
             <div className={styles.leftNav}>
@@ -48,20 +49,25 @@ const NavLayout = ({ children }: { children: JSX.Element }) => {
         </div>
         <div className={styles.categoryBox}>
           <div className={styles.categoryNav}>
-            <span>
+            <span className={styles.navBtn}>
               <Link href="/">
                 <a>홈</a>
               </Link>
             </span>
-            <span>
+            <span className={styles.navBtn}>
               <div />
               <Link href="/">
                 <a>인기</a>
               </Link>
             </span>
+            <div className={styles.btnBox}>
+              <BorderButton handleClick={() => router.push('/create')}>
+                개설하기
+              </BorderButton>
+            </div>
           </div>
         </div>
-      </div>
+      </nav>
       <div className={styles.contentSection}>{children}</div>
     </div>
   );

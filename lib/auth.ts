@@ -27,7 +27,7 @@ async function loadUser() {
   if (storage.getAccessToken()) {
     // const data = await getUserProfile();
     const data = await storage.getAccessToken(); //localStorage.getItem('token') as string,
-    console.log('loadUser', data);
+    // console.log('loadUser', data);
     user = data;
   }
   return user;

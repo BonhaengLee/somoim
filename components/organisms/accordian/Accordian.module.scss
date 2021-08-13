@@ -1,0 +1,62 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.accordianContainer {
+  width: 100%;
+  h2 {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  section {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    article {
+      flex: 1 1 25%;
+      // text-align: center;
+      padding: 1em 0;
+      @media (max-width: 1000px) {
+        flex: 1 1 33%;
+      }
+      @media (max-width: 800px) {
+        flex: 1 1 50%;
+      }
+      @media (max-width: 500px) {
+        flex: 1 1 100%;
+      }
+      // section {
+      //   text-align: center;
+      img {
+        margin: 10px;
+        height: 150px;
+        width: 250px;
+        @media (max-width: 1200px) {
+          height: 12.5vw;
+          width: 20.83vw;
+        }
+        @media (max-width: 1000px) {
+          height: 17vw;
+          width: 27vw;
+        }
+        @media (max-width: 800px) {
+          height: 21.25vw;
+          width: 33.75vw;
+        }
+        @media (max-width: 500px) {
+          height: 50vw;
+          width: 78vw;
+        }
+      }
+      span {
+        p {
+          display: inline-block;
+          margin-right: 4px;
+          background: lightgray;
+        }
+      }
+    }
+  }
+}
