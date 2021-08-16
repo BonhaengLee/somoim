@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
-// import { ReactQueryDevtools } from 'react-query/devtools';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 export const queryClient = new QueryClient();
 
@@ -8,6 +8,7 @@ export function ReactQueryProvider({ children }) {
     <QueryClientProvider client={queryClient}>
       {/* <ReactQueryDevtools /> */}
       {children}
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }

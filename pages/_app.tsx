@@ -9,7 +9,6 @@ import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 import { AuthProvider } from '../lib/auth';
 import { ReactQueryProvider } from '../lib/ReactQueryProvider';
-import { useQuery, QueryClient } from 'react-query';
 import { AppProps } from 'next/dist/shared/lib/router/router';
 // import {
 //   useQuery,

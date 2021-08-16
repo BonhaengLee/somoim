@@ -1,0 +1,25 @@
+@import '../../styles/variables';
+
+.wrapper {
+  padding-top: 25px;
+  .container {
+    display: flex;
+    .imageBox {
+      width: 50%;
+      min-width: 50%;
+      @media #{$Small-Tablet} {
+        display: none;
+      }
+      div {
+        width: 100%;
+        img {
+          max-height: 590px;
+          vertical-align: bottom;
+          width: 100%;
+          height: 522px;
+          object-fit: fill;
+        }
+      }
+    }
+  }
+}
