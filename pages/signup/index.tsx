@@ -181,7 +181,6 @@ const Signup = (): JSX.Element => {
 
   return (
     <div className={styles.wrapper}>
-    <div className={styles.s}>
       <div className={styles.container}>
         <picture className={styles.imageBox}>
           <div className={styles.imgWrapper}>
@@ -189,7 +188,6 @@ const Signup = (): JSX.Element => {
           </div>
         </picture>
         {changeForm()}
-      </div>
       </div>
     </div>
   );

@@ -1,21 +1,6 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-// margin: 0;
-// @include flexCenter();
-// box-sizing: border-box;
-// .student-info-flex-container {
-//     @include flexAllCenter();
-//     min-width: 100vw;
-//     width: auto;
-//     min-height: 100vh;
-//     height: auto;
-//     .student-info-container {
-//         width: calc(100% - 16px);
-//         max-width: 384px;
-//         padding: 40px 0;
-//         .student-info-table {
-
 .wrapper {
   @include flexCenter();
   .container {
@@ -33,10 +18,10 @@
       .imgWrapper {
         width: 100%;
         img {
-          max-height: 590px;
           vertical-align: bottom;
           width: 50%;
           height: 522px;
+          max-height: 590px;
           object-fit: fill;
         }
       }

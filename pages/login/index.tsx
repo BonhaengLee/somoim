@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import router from 'next/router';
 import Image from 'next/image';
-import banner from '../../public/assets/images/gather-banner.jpeg';
+// import banner from '../../public/assets/images/gather-banner.jpeg';
+import banner from '../../public/assets/images/gather-banner-flower.png';
 import LoginForm from '../../components/organisms/loginForm/LoginForm';
 import styles from './login.module.scss';
 import { idCheckRgx, passwordCheckRgx } from '../../services/validationCheck';
@@ -99,7 +100,7 @@ const Login = () => {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <picture className={styles.imageBox}>
-          <div>
+          <div className={styles.imgWrapper}>
             <Image src={banner} alt="" placeholder="blur" />
           </div>
         </picture>
