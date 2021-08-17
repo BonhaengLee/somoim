@@ -381,3 +381,30 @@ footer {
     }
   }
 }
+
+
+.radioButton {
+  display: none;
+}
+
+.radioLabel {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+  background-color: white;
+  border: 1px solid rgb(204, 204, 204);
+  margin-right: 20px;
+}
+
+.radioButton {
+  display: none;
+  &:checked + label {
+    background-image:
+    url('/assets/icons/ic-check-box.svg');
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

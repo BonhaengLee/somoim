@@ -5,6 +5,7 @@ import Image from 'next/image';
 import banner from '../public/assets/images/gather-banner.jpeg';
 import banner2 from '../public/assets/images/gather-banner-flower.png';
 import Accordian from '../components/organisms/accordian/Accordian';
+import NavLayout from './layout/NavLayout';
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
@@ -105,6 +106,7 @@ export default function Home(props: { imageDynamic: string }) {
     </main>
   );
 }
+Home.Layout = NavLayout;
 
 // export async function getStaticProps({ params }) {
 //   const image = await getPhotos(); // fetch your data;

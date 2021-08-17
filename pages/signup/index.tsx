@@ -181,13 +181,15 @@ const Signup = (): JSX.Element => {
 
   return (
     <div className={styles.wrapper}>
+    <div className={styles.s}>
       <div className={styles.container}>
         <picture className={styles.imageBox}>
-          <div>
-            <Image src={banner} alt="" placeholder="blur" />
+          <div className={styles.imgWrapper}>
+            <Image className={styles.banner} src={banner} alt="" placeholder="blur" />
           </div>
         </picture>
         {changeForm()}
+      </div>
       </div>
     </div>
   );

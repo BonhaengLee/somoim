@@ -10,8 +10,8 @@ export default function QuillEditor({ body, handleQuillChange, mountBody }) {
   useEffect(() => {
     if (isLoaded) {
       /* isLoaded가 true인 상태에서 rerenderBody를 통해 body 적용시 Quill 초기화 없이
-             innerHTML만 body로 바꿉니다. 이 조건이 없을 시 툴바가 중복되어 여러 개 나타나게
-             됩니다. */
+      innerHTML만 body로 바꿉니다. 이 조건이 없을 시 툴바가 중복되어 여러 개 나타나게
+      됩니다. */
       const quill = quillInstance.current;
       // @ts-ignore
       quill.root.innerHTML = body;
@@ -62,20 +62,20 @@ export default function QuillEditor({ body, handleQuillChange, mountBody }) {
       quill.root.innerHTML = body;
 
       /* quill에서 text-change 이벤트 발생시에 setBody(innerHTML)을 통해 body를 업데이트합니다.
-             body가 업데이트되어도 useEffect 발생 조건 인자([isError, mountBody])에 body가 없으므로
-             QuillEditor 컴포넌트는 다시 렌더링되지 않습니다. 이는 입력 중 커서가 맨 앞으로 이동하는
-             문제를 방지합니다. 대신 외부에서 body가 수정되어도 rerenderBody가 호출되지 않으면 변경된
-             body가 적용되지 않습니다. */
+      body가 업데이트되어도 useEffect 발생 조건 인자([isError, mountBody])에 body가 없으므로
+      QuillEditor 컴포넌트는 다시 렌더링되지 않습니다. 이는 입력 중 커서가 맨 앞으로 이동하는
+      문제를 방지합니다. 대신 외부에서 body가 수정되어도 rerenderBody가 호출되지 않으면 변경된
+      body가 적용되지 않습니다. */
       // @ts-ignore
-      quill.on('text-change', () => {
+      quill.on('text-change', () =>
         // @ts-ignore
-        handleQuillChange(quill.root.innerHTML);
-      });
+        handleQuillChange(quill.root.innerHTML)
+      );
 
       setIsLoaded(true);
     } else {
       /* quill.min.js가 로드되어 있지 않아 window.Quill이 undefined이면 isError가
-             계속 변경되면서 재시도합니다. */
+      계속 변경되면서 재시도합니다. >> Maximum update depth 에러 발생 >> setTimeout 추가 X */
       setIsError((prevIsError) => !prevIsError);
     }
   }, [isError, mountBody]);

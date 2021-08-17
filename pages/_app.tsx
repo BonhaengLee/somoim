@@ -10,24 +10,21 @@ import 'swiper/components/scrollbar/scrollbar.scss';
 import { AuthProvider } from '../lib/auth';
 import { ReactQueryProvider } from '../lib/ReactQueryProvider';
 import { AppProps } from 'next/dist/shared/lib/router/router';
-// import {
-//   useQuery,
-//   useMutation,
-//   useQueryCache,
-//   QueryCache,
-//   ReactQueryCacheProvider,
-// } from 'react-query';
-// const queryClient = new QueryCache();
+import DefaultLayout from './layout/DefaultLayout';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: any) {
+  // @ts-8ignore
+  // console.log(Component.Layout);
+  const Layout = Component.Layout || DefaultLayout;
+
   return (
     <>
       <ReactQueryProvider>
         <AuthProvider>
           <MainLayout>
-            <NavLayout>
+            <Layout>
               <Component {...pageProps} />
-            </NavLayout>
+            </Layout>
           </MainLayout>
         </AuthProvider>
       </ReactQueryProvider>
