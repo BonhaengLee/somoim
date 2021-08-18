@@ -70,19 +70,29 @@ const t2 = [
   },
 ];
 
+const tabItems = [
+  '운동',
+  '공부',
+  '생활습관',
+  '취미',
+  '감정관리',
+  '돈관리',
+  '외국어',
+];
+
 const Accordian = (props): JSX.Element => {
   const [changeTab, setChangeTab] = useState(t);
 
+  // 미완
   const handleChange = (item) => {
-    // console.log(item);
-
     if (item === '운동') setChangeTab(t);
     else setChangeTab(t2);
   };
+
   return (
     <article className={styles.accordianContainer}>
       <h2>모임</h2>
-      <Tabs onChange={handleChange} />
+      <Tabs tabItems={tabItems} onChange={handleChange} />
       <section>
         {changeTab?.map((item) => (
           <article key={item.id}>

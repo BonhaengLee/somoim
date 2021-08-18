@@ -1,35 +1,64 @@
 {
+  "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react", "@typescript-eslint", "prettier"],
-  "env": {
-    "browser": true,
-    "node": true
-  },
   "extends": [
     "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "airbnb",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
   ],
-  "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true,
-        "semi": true,
-        "useTabs": false,
-        "tabWidth": 2,
-        "printWidth": 80,
-        "bracketSpacing": true,
-        "arrowParens": "always",
-        "endOfLine": "auto",
-        "trailingComma": "es5"
-      }
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules":  {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    // React
+    "react/jsx-uses-react": "warn",
+    "react/jsx-uses-vars": "warn",
+    "react-hooks/rules-of-hooks": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": 0,
+    "react/no-unused-prop-types": 1,
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "import/extensions": [ 
+      "error", 
+      "ignorePackages", 
+      { 
+          "js": "never", 
+          "jsx": "never", 
+          "ts": "never", 
+          "tsx": "never", 
+          "json": "never" 
+      } 
     ],
-    "react/no-unescaped-entities": 0,
-    "import/extensions": "off",
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/triple-slash-reference": "off",
-    "indent": [0],
-    "require-yield": "off"
-  }
+    "operator-linebreak": 0,
+    "no-unused-expressions": 0
+  },
+  "settings": {
+    "react": {
+      "version": "detect",
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
+      }
+    }
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier"]
 }

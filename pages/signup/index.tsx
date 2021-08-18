@@ -41,74 +41,25 @@ const Signup = (): JSX.Element => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    if (name === 'id')
+    if (name === 'id') {
       !idCheckRgx(value)
         ? setInputCheck({ ...inputCheck, idCheck: false })
         : setInputCheck({ ...inputCheck, idCheck: true });
-    else if (name === 'email')
+    } else if (name === 'email') {
       !emailCheckRgx(value)
         ? setInputCheck({ ...inputCheck, emailCheck: false })
         : setInputCheck({ ...inputCheck, emailCheck: true });
-    else if (name === 'password')
+    } else if (name === 'password') {
       !passwordCheckRgx(value)
         ? setInputCheck({ ...inputCheck, passwordCheck: false })
         : setInputCheck({ ...inputCheck, passwordCheck: true });
-    else if (name === 'nickname')
+    } else if (name === 'nickname') {
       !nicknameCheckRgx(value)
         ? setInputCheck({ ...inputCheck, nicknameCheck: false })
         : setInputCheck({ ...inputCheck, nicknameCheck: true });
+    }
     setSignupInput({ ...signupInput, [name]: value });
   };
-
-  const [disabledUserDt, setDisabledUserDt] = useState(true);
-  const [disabledPersonalDt, setDisabledPersonalDt] = useState(true);
-  const signUpRequest = () => {
-    console.log('h');
-
-    if (!disabledUserDt && !disabledPersonalDt) {
-      console.log('not');
-
-      signUp();
-    }
-  };
-  const validUserDt =
-    signupInput.id !== '' &&
-    signupInput.email !== '' &&
-    signupInput.password !== '' &&
-    signupInput.passwordConfirm !== '' &&
-    inputCheck.idCheck &&
-    inputCheck.emailCheck &&
-    inputCheck.passwordCheck &&
-    signupInput.password === signupInput.passwordConfirm;
-
-  useEffect(() => {
-    if (validUserDt) {
-      setDisabledUserDt(false);
-    } else {
-      setDisabledUserDt(true);
-    }
-  }, [
-    validUserDt,
-    signupInput.id,
-    signupInput.email,
-    signupInput.password,
-    signupInput.passwordConfirm,
-    inputCheck.idCheck,
-    inputCheck.emailCheck,
-    inputCheck.passwordCheck,
-  ]);
-
-  useEffect(() => {
-    if (
-      signupInput.nickname !== '' &&
-      signupInput.birthDate !== '' &&
-      inputCheck.nicknameCheck
-    ) {
-      setDisabledPersonalDt(false);
-    } else {
-      setDisabledPersonalDt(true);
-    }
-  }, [signupInput.nickname, signupInput.birthDate, inputCheck.nicknameCheck]);
 
   // Id : 영문(소문자,대문자), 숫자만 가능, 특수문자 사용불가 (최소 5글자, 최대 15글자)
   // pw : 영문(소문자, 대문자), 숫자, 특수기호(최소1개 포함해야함) 가능 (최소 8글자, 최대 15글자)
@@ -148,6 +99,53 @@ const Signup = (): JSX.Element => {
     }
   };
 
+  const [disabledUserDt, setDisabledUserDt] = useState(true);
+  const [disabledPersonalDt, setDisabledPersonalDt] = useState(true);
+  const signUpRequest = () => {
+    if (!disabledUserDt && !disabledPersonalDt) {
+      signUp();
+    }
+  };
+
+  const validUserDt =
+    signupInput.id !== '' &&
+    signupInput.email !== '' &&
+    signupInput.password !== '' &&
+    signupInput.passwordConfirm !== '' &&
+    inputCheck.idCheck &&
+    inputCheck.emailCheck &&
+    inputCheck.passwordCheck &&
+    signupInput.password === signupInput.passwordConfirm;
+
+  useEffect(() => {
+    if (validUserDt) {
+      setDisabledUserDt(false);
+    } else {
+      setDisabledUserDt(true);
+    }
+  }, [
+    validUserDt,
+    signupInput.id,
+    signupInput.email,
+    signupInput.password,
+    signupInput.passwordConfirm,
+    inputCheck.idCheck,
+    inputCheck.emailCheck,
+    inputCheck.passwordCheck,
+  ]);
+
+  useEffect(() => {
+    if (
+      signupInput.nickname !== '' &&
+      signupInput.birthDate !== '' &&
+      inputCheck.nicknameCheck
+    ) {
+      setDisabledPersonalDt(false);
+    } else {
+      setDisabledPersonalDt(true);
+    }
+  }, [signupInput.nickname, signupInput.birthDate, inputCheck.nicknameCheck]);
+
   // console.log(idCheck, emailCheck, passwordCheck, passwordConfirmCheck, disabledUserDt);
   // console.log(inputCheck, disabledPersonalDt);
 
@@ -173,7 +171,8 @@ const Signup = (): JSX.Element => {
             disabled={disabledPersonalDt}
           />
         );
-      default: // do nothing
+      default:
+        return <></>; // do nothing
     }
   };
 
@@ -184,7 +183,12 @@ const Signup = (): JSX.Element => {
       <div className={styles.container}>
         <picture className={styles.imageBox}>
           <div className={styles.imgWrapper}>
-            <Image className={styles.banner} src={banner} alt="" placeholder="blur" />
+            <Image
+              className={styles.banner}
+              src={banner}
+              alt=""
+              placeholder="blur"
+            />
           </div>
         </picture>
         {changeForm()}

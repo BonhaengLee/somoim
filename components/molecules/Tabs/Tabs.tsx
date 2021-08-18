@@ -7,13 +7,11 @@ const Tabs = (props): JSX.Element => {
   };
   return (
     <ul className={styles.tabs}>
-      {['운동', '공부', '생활습관', '취미', '감정관리', '돈관리', '외국어'].map(
-        (item, idx) => (
-          <li key={idx}>
-            <button onClick={() => onClick(item)}>{item}</button>
-          </li>
-        )
-      )}
+      {props.tabItems.map((item, idx) => (
+        <li key={idx}>
+          <button onClick={() => onClick(item)}>{item}</button>
+        </li>
+      ))}
       <li className="blank"></li>
     </ul>
   );

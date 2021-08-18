@@ -5,24 +5,24 @@ import Image from 'next/image';
 import banner from '../../public/assets/images/gather-banner-flower.png';
 import styles from './create.module.scss';
 import QuillEditor from '../../components/atoms/quillEditor/QuillEditor';
-import CategoryInputForm from '../../components/organisms/categoryInputForm/CategoryInputForm';
+// import CategoryInputForm from '../../components/organisms/categoryInputForm/CategoryInputForm';
 import ContentsInputForm from '../../components/organisms/contentsInputForm';
 
 const Create = (): JSX.Element => {
   const [step, setStep] = useState(1);
   const [createInput, setCreateInput] = useState({
-    "category": '',
-    "content": '',
-    "fee": 0,
-    "finish_at": '',
-    "frequency": '',
-    "max_age": 0,
-    "min_age": 0,
-    "numOfPeople": 0,
-    "place": '',
-    "start_at": '',
-    "thumbnail": '',
-    "title": ''
+    category: '',
+    content: '',
+    fee: 0,
+    finish_at: '',
+    frequency: '',
+    max_age: 0,
+    min_age: 0,
+    numOfPeople: 0,
+    place: '',
+    start_at: '',
+    thumbnail: '',
+    title: '',
   });
 
   const prevStep = () => {
@@ -33,8 +33,7 @@ const Create = (): JSX.Element => {
     setStep((prev) => prev + 1);
   };
 
-
-const changeForm = () => {
+  const changeForm = () => {
     switch (step) {
       case 1:
         return (
@@ -46,47 +45,27 @@ const changeForm = () => {
           />
         );
       case 2:
-        return (
-                <ContentsInputForm />
-        );
+        return <ContentsInputForm />;
       case 3:
-        return (
-                <ContentsInputForm />
-        );
+        return <ContentsInputForm />;
       case 4:
-        return (
-                <ContentsInputForm />
-        );
+        return <ContentsInputForm />;
       case 5:
-        return (
-                <ContentsInputForm />
-        );
+        return <ContentsInputForm />;
       case 6:
-        return (
-                <ContentsInputForm />
-        );
+        return <ContentsInputForm />;
       case 7:
-        return (
-                <ContentsInputForm />
-        );
+        return <ContentsInputForm />;
       case 8:
-        return (
-                <ContentsInputForm />
-        );
+        return <ContentsInputForm />;
       case 9:
-        return (
-                <ContentsInputForm />
-        );            
-      default: // do nothing
+        return <ContentsInputForm />;
+      default:
+        return <></>; // do nothing
     }
   };
 
-  return (
-    <div className={styles.container}>
-        {/* {changeForm()} */}
-        <CategoryInputForm/>
-    </div>
-  );
+  return <div className={styles.container}>{changeForm()}</div>;
 };
 
 export default Create;
