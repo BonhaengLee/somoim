@@ -47,6 +47,7 @@
     "react-hooks/rules-of-hooks": "warn",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": 0,
+    "react/require-default-props": 0,
     "react/no-unused-prop-types": 1,
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": 1,

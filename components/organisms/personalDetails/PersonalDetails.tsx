@@ -59,7 +59,9 @@ const PersonalDetails = (props: {
       </div>
       <div className={styles.footerSection}>
         <Button handleClick={Previous}>이전</Button>
-        <Button handleClick={Continue}>가입하기</Button>
+        <Button handleClick={Continue} disabled={props.disabled}>
+          가입하기
+        </Button>
       </div>
     </div>
   );
