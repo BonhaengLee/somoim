@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import styles from './create.module.scss';
 import QuillEditor from '../../atoms/quillEditor/QuillEditor';
+import Button from '../../atoms/button/Button';
 
 const ContentsInputForm = (): JSX.Element => {
   const [body, setBody] = useState(''); // Quill 에디터의 innerHTML을 담는 state
@@ -62,6 +63,9 @@ const ContentsInputForm = (): JSX.Element => {
                 body 수정 발생
               </button>
               <button onClick={rerenderBody}>body 수정 사항 적용</button>
+              <Button handleClick={() => console.log('개설하기')}>
+                개설하기
+              </Button>
             </section>
           </article>
         </div>

@@ -11,6 +11,8 @@ import FrequencyInputForm from '../../components/organisms/frequencyInputForm co
 import DateInputForm from '../../components/organisms/dateInputForm/DateInputForm';
 import FeeInputForm from '../../components/organisms/feeInputForm copy/FeeInputForm';
 import AgeInputForm from '../../components/organisms/ageInputForm/AgeInputForm';
+import JoinInputForm from '../../components/organisms/joinInputForm/JoinInputForm';
+import ThumbnailInputForm from '../../components/organisms/thumbnailInputForm copy 2/ThumbnailInputForm';
 
 const Create = (): JSX.Element => {
   const [step, setStep] = useState(1);
@@ -220,7 +222,7 @@ const Create = (): JSX.Element => {
         );
       case 7:
         return (
-          <TitleInputForm
+          <JoinInputForm
             prevStep={prevStep}
             nextStep={nextStep}
             values={createInput}
@@ -229,7 +231,7 @@ const Create = (): JSX.Element => {
         );
       case 8:
         return (
-          <TitleInputForm
+          <ThumbnailInputForm
             prevStep={prevStep}
             nextStep={nextStep}
             values={createInput}

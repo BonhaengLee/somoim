@@ -1,0 +1,59 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.bodyInner {
+    &.ThumbnailInputWrapper {
+        margin: 0;
+        @include flexCenter();
+        box-sizing: border-box;
+        .ThumbnailInputFlexContainer {
+            @include flexAllCenter();
+            min-width: 100vw;
+            width: auto;
+            min-height: 100vh;
+            height: auto;
+            .ThumbnailInputContainer {
+                width: calc(100% - 16px);
+                max-width: 400px;
+                .ThumbnailInputCard {
+                    background: #FAFAFA;
+                    box-shadow: 3px 3px 8px rgba(17, 17, 17, 0.4);
+                    border-radius: 4px;
+                    padding: 20px;
+                    .ThumbnailInputHeader {
+                        text-align: center;
+                        margin-bottom: 40px;
+                        .subThumbnail {
+                          color: rgba(0, 0, 0, 0.35);
+                          word-break: keep-all;  
+                        }
+                    }
+                    .ThumbnailInputBody {
+                        margin-bottom : 60px;
+                        input {
+                          float: left;
+                          width: 90%;
+                        }
+                        p {
+                          float: right;
+                          width: 5%;
+                          margin-top: 10px;
+                          font-size: 1.5rem;
+                        }
+                    }
+                    .ThumbnailInputFooter {
+                      width: 100%;
+                      display: flex;
+                      flex: 1;
+                      button {
+                        margin-right: 5px;
+                        &:last-child {
+                          margin-right: 0;
+                        }
+                      }
+                    }
+                }
+            }
+        }
+    }
+}

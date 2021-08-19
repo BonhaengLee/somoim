@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import Button from '../../atoms/button/Button';
 import CardTitle from '../../atoms/cardTitle/CardTitle';
 import UserInput from '../../atoms/userInput/UserInput';
-import styles from './AgeInputForm.module.scss';
+import styles from './JoinInputForm.module.scss';
 
-const ages = [
+const joins = [
   // { id: 1, age: 20 },
   // { id: 2, age: 21 },
-  20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
   // { id: 3, age: 22 },
   // { id: 4, age: 23 },
   // { id: 5, age: 24 },
@@ -39,7 +39,7 @@ const ages = [
   // { id: 31, age: 50 },
 ];
 
-const AgeInputForm = (props: {
+const JoinInputForm = (props: {
   prevStep: () => void;
   nextStep: () => void;
   values: {
@@ -68,32 +68,16 @@ const AgeInputForm = (props: {
     props.nextStep();
   };
 
-  // @ : menu1
-  const [isOpen_1, setIsOpen_1] = useState(false);
-  const [selectedOption_1, setSelectedOption_1] = useState(null);
+  // @ : menu
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
-  const toggling_1 = () => setIsOpen_1(!isOpen_1);
+  const toggling = () => setIsOpen(!isOpen);
 
-  const onOptionClicked_1 = (value: any) => () => {
-    setSelectedOption_1(value);
-    setIsOpen_1(false);
-    console.log(selectedOption_1);
-    // setModelForm({
-    //   ...modelForm,
-    //   gender: value,
-    // });
-  };
-
-  // @ : menu2
-  const [isOpen_2, setIsOpen_2] = useState(false);
-  const [selectedOption_2, setSelectedOption_2] = useState(null);
-
-  const toggling_2 = () => setIsOpen_2(!isOpen_2);
-
-  const onOptionClicked_2 = (value: any) => () => {
-    setSelectedOption_2(value);
-    setIsOpen_2(false);
-    console.log(selectedOption_2);
+  const onOptionClicked = (value: any) => () => {
+    setSelectedOption(value);
+    setIsOpen(false);
+    console.log(selectedOption);
     // setModelForm({
     //   ...modelForm,
     //   gender: value,
@@ -108,21 +92,21 @@ const AgeInputForm = (props: {
             <section className={styles.AgeInputBody}>
               <div className={styles.AgeInputBox}>
                 <article>
-                  <h2>최소 나이를 설정하세요</h2>
+                  <h2>모임 인원을 설정하세요</h2>
                   <div className={styles.DropDownContainer}>
-                    <div className={styles.DropDownHeader} onClick={toggling_1}>
+                    <div className={styles.DropDownHeader} onClick={toggling}>
                       <div>
-                        <p>{selectedOption_1 || '최소 나이'}</p>
+                        <p>{selectedOption || '모임 인원'}</p>
                         <div />
                       </div>
                     </div>
-                    {isOpen_1 && (
+                    {isOpen && (
                       <div className={styles.DropDownListContainer}>
                         <ul className={styles.DropDownList}>
-                          {ages.map((option) => (
+                          {joins.map((option) => (
                             <li
                               className={styles.ListItem}
-                              onClick={onOptionClicked_1(option)}
+                              onClick={onOptionClicked(option)}
                               key={Math.random()}
                             >
                               {option}
@@ -134,30 +118,14 @@ const AgeInputForm = (props: {
                   </div>
                 </article>
                 <article>
-                  <h2>최대 나이를 설정하세요</h2>
-                  <div className={styles.DropDownContainer}>
-                    <div className={styles.DropDownHeader} onClick={toggling_2}>
-                      <div>
-                        <p>{selectedOption_2 || '최대 나이'}</p>
-                        <div />
-                      </div>
-                    </div>
-                    {isOpen_2 && (
-                      <div className={styles.DropDownListContainer}>
-                        <ul className={styles.DropDownList}>
-                          {ages.map((option) => (
-                            <li
-                              className={styles.ListItem}
-                              onClick={onOptionClicked_2(option)}
-                              key={Math.random()}
-                            >
-                              {option}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
+                  <h2>모임 장소를 설정하세요</h2>
+                  <UserInput
+                    inputType="text"
+                    name="place"
+                    placeholder="예) xx스터디 카페 xx점"
+                    value={props.values.place}
+                    onChange={props.handleChange}
+                  />
                 </article>
               </div>
             </section>
@@ -172,4 +140,4 @@ const AgeInputForm = (props: {
   );
 };
 
-export default AgeInputForm;
+export default JoinInputForm;

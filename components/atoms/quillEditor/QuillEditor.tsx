@@ -74,7 +74,7 @@ export default function QuillEditor({ body, handleQuillChange, mountBody }) {
 
       setIsLoaded(true);
     }
-  }, []);
+  }, [isError, mountBody]);
 
   return <div ref={quillElement} style={{ minHeight: '305px' }}></div>;
 }
