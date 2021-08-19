@@ -3,39 +3,44 @@
 
 .bodyInner {
     width: 100vw;
-    &.CategoryInputWrapper {
+    &.ContentInputWrapper {
         margin: 0;
         @include flexCenter();
         box-sizing: border-box;
-        .CategoryInputFlexContainer {
+        .ContentInputFlexContainer {
             @include flexAllCenter();
             min-width: 100vw;
             width: auto;
             min-height: 100vh;
             height: auto;
-            .CategoryInputContainer {
+            .ContentInputContainer {
                 width: calc(100% - 16px);
-                .CategoryInputCard {
+                .ContentInputCard {
                     background: #FAFAFA;
                     box-shadow: 3px 3px 8px rgba(17, 17, 17, 0.4);
                     border-radius: 4px;
                     padding: 20px;
-                    .CategoryInputHeader {
+                    .ContentInputHeader {
                         text-align: center;
                         margin-bottom: 40px;
-                        @media #{$XSmall-Mobile} {
-                        //   @include fontSize(6.667vw,800);
-                        //   margin-bottom: 11.333vw;
-                        }
                     }
-                    .CategoryInputBody {
-                      overflow: none;
-                      .body {
-                        overflow: scroll;
-                      }
+                    .ContentInputBody {
+                        margin-bottom: 60px;
+                    }
+                    .ContentInputFooter {
                     }
                 }
             }
         }
+    }
+}
+
+.qlEditor{
+    div:last-child { 
+        min-height: 320px !important;
+        max-height: 320px !important;
+        overflow: hidden;
+        overflow-y: auto;
+        // overflow-x: scroll;
     }
 }
