@@ -1,0 +1,49 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.bodyInner {
+    &.TitleInputWrapper {
+        margin: 0;
+        @include flexCenter();
+        box-sizing: border-box;
+        .TitleInputFlexContainer {
+            @include flexAllCenter();
+            min-width: 100vw;
+            width: auto;
+            min-height: 100vh;
+            height: auto;
+            .TitleInputContainer {
+                width: calc(100% - 16px);
+                max-width: 400px;
+                .TitleInputCard {
+                    background: #FAFAFA;
+                    box-shadow: 3px 3px 8px rgba(17, 17, 17, 0.4);
+                    border-radius: 4px;
+                    padding: 20px;
+                    .TitleInputHeader {
+                        text-align: center;
+                        margin-bottom: 40px;
+                        .subTitle {
+                          color: rgba(0, 0, 0, 0.35);
+                          word-break: keep-all;  
+                        }
+                    }
+                    .TitleInputBody {
+                        margin-bottom : 253px;
+                    }
+                    .TitleInputFooter {
+                      width: 100%;
+                      display: flex;
+                      flex: 1;
+                      button {
+                        margin-right: 5px;
+                        &:last-child {
+                          margin-right: 0;
+                        }
+                      }
+                    }
+                }
+            }
+        }
+    }
+}

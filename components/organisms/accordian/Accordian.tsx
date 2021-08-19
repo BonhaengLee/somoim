@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Tabs from '../../molecules/Tabs/Tabs';
-import styles from './Accordian.module.scss';
 import Image from 'next/image';
+import Tabs from '../tabs/Tabs';
+import styles from './Accordian.module.scss';
 import banner from '../../../public/assets/images/gather-banner.jpeg';
 
 const t = [
@@ -99,9 +99,9 @@ const Accordian = (props): JSX.Element => {
             <Image src={banner} alt="" />
             <p>{item.title}</p>
             <p>{item.startDate}</p>
-            {item.tags.map((item, idx) => (
-              <span key={idx}>
-                <p>{item}</p>
+            {item.tags.map((tag) => (
+              <span key={tag}>
+                <p>{tag}</p>
               </span>
             ))}
           </article>

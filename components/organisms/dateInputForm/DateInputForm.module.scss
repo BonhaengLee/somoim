@@ -1,0 +1,48 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.bodyInner {
+    &.DateInputWrapper {
+        margin: 0;
+        @include flexCenter();
+        box-sizing: border-box;
+        .DateInputFlexContainer {
+            @include flexAllCenter();
+            min-width: 100vw;
+            width: auto;
+            min-height: 100vh;
+            height: auto;
+            .DateInputContainer {
+                width: calc(100% - 16px);
+                max-width: 400px;
+                .DateInputCard {
+                    background: #FAFAFA;
+                    box-shadow: 3px 3px 8px rgba(17, 17, 17, 0.4);
+                    border-radius: 4px;
+                    padding: 20px;
+                    .DateInputBody {
+                      text-align: center;
+                      article {
+                        margin-bottom: 60px;
+                        h2 {
+                          font-weight: 400;
+                          margin-bottom: 40px;
+                        }
+                      }
+                    }
+                    .DateInputFooter {
+                      width: 100%;
+                      display: flex;
+                      flex: 1;
+                      button {
+                        margin-right: 5px;
+                        &:last-child {
+                          margin-right: 0;
+                        }
+                      }
+                    }
+                }
+            }
+        }
+    }
+}

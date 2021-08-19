@@ -73,12 +73,8 @@ export default function QuillEditor({ body, handleQuillChange, mountBody }) {
       );
 
       setIsLoaded(true);
-    } else {
-      /* quill.min.js가 로드되어 있지 않아 window.Quill이 undefined이면 isError가
-      계속 변경되면서 재시도합니다. >> Maximum update depth 에러 발생 >> setTimeout 추가 X */
-      setIsError((prevIsError) => !prevIsError);
     }
-  }, [isError, mountBody]);
+  }, []);
 
-  return <div ref={quillElement}></div>;
+  return <div ref={quillElement} style={{ minHeight: '305px' }}></div>;
 }

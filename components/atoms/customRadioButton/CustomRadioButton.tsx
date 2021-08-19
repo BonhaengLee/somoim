@@ -5,7 +5,10 @@ interface ILabels {
   name: string;
 }
 
-const CustomRadioButton = (props: { labels: ILabels[] }): JSX.Element => {
+const CustomRadioButton = (props: {
+  eName: string;
+  labels: ILabels[];
+}): JSX.Element => {
   return (
     <>
       <div className={styles.colorSelectorContainer}>
@@ -18,7 +21,7 @@ const CustomRadioButton = (props: { labels: ILabels[] }): JSX.Element => {
               className="radioButton"
               id={l.name}
               type="radio"
-              name="l-selector"
+              name={props.eName}
               value={l.name}
             />
             <label className="radioLabel" htmlFor={l.name} />

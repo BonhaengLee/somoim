@@ -26,6 +26,20 @@
     }
   },
   "rules":  {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "semi": true,
+        "useTabs": false,
+        "tabWidth": 2,
+        "printWidth": 80,
+        "bracketSpacing": true,
+        "arrowParens": "always",
+        "endOfLine": "auto",
+        "trailingComma": "es5"
+      }
+    ],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     // React
     "react/jsx-uses-react": "warn",
@@ -48,7 +62,8 @@
       } 
     ],
     "operator-linebreak": 0,
-    "no-unused-expressions": 0
+    "no-unused-expressions": 1,
+    "trailing-comma": false
   },
   "settings": {
     "react": {

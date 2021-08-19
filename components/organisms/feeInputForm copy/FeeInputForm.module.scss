@@ -1,0 +1,59 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.bodyInner {
+    &.FeeInputWrapper {
+        margin: 0;
+        @include flexCenter();
+        box-sizing: border-box;
+        .FeeInputFlexContainer {
+            @include flexAllCenter();
+            min-width: 100vw;
+            width: auto;
+            min-height: 100vh;
+            height: auto;
+            .FeeInputContainer {
+                width: calc(100% - 16px);
+                max-width: 400px;
+                .FeeInputCard {
+                    background: #FAFAFA;
+                    box-shadow: 3px 3px 8px rgba(17, 17, 17, 0.4);
+                    border-radius: 4px;
+                    padding: 20px;
+                    .FeeInputHeader {
+                        text-align: center;
+                        margin-bottom: 40px;
+                        .subFee {
+                          color: rgba(0, 0, 0, 0.35);
+                          word-break: keep-all;  
+                        }
+                    }
+                    .FeeInputBody {
+                        margin-bottom : 339px;
+                        input {
+                          float: left;
+                          width: 90%;
+                        }
+                        p {
+                          float: right;
+                          width: 5%;
+                          margin-top: 10px;
+                          font-size: 1.5rem;
+                        }
+                    }
+                    .FeeInputFooter {
+                      width: 100%;
+                      display: flex;
+                      flex: 1;
+                      button {
+                        margin-right: 5px;
+                        &:last-child {
+                          margin-right: 0;
+                        }
+                      }
+                    }
+                }
+            }
+        }
+    }
+}

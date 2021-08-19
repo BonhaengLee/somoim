@@ -14,7 +14,8 @@ const ContentsInputForm = (): JSX.Element => {
   }
 
   return (
-    <div className={styles.container}>
+    // <div className={styles.container}>
+    <div className={`${styles.bodyInner} ${styles.CategoryInputWrapper}`}>
       <Head>
         <title>Quill in createPage</title>
         <link rel="icon" href="/favicon.ico" />
@@ -33,28 +34,37 @@ const ContentsInputForm = (): JSX.Element => {
         />
         <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.snow.css" />
       </Head>
+      <div className={styles.CategoryInputFlexContainer}>
+        <div className={styles.CategoryInputContainer}>
+          <article className={styles.CategoryInputCard}>
+            <section className={styles.CategoryInputHeader}>
+              <h1 className={styles.title}>모임을 소개하세요.</h1>
+              <p className={styles.subTitle}>
+                추가 사진과 글로 모임을 자세히 소개해보세요.
+              </p>
+            </section>
 
-      <h1 className={styles.title}>모임을 소개하세요.</h1>
-      <p className={styles.subTitle}>
-        추가 사진과 글로 모임을 자세히 소개해보세요.
-      </p>
+            <section className={styles.CategoryInputBody}>
+              <QuillEditor
+                body={body}
+                handleQuillChange={setBody}
+                mountBody={mountBody}
+              />
+            </section>
 
-      <div style={{ width: '80%', marginTop: '40px' }}>
-        <QuillEditor
-          body={body}
-          handleQuillChange={setBody}
-          mountBody={mountBody}
-        />
-      </div>
-      <div style={{ width: '80%' }}>
-        <p>body state 미리보기</p>
-        {body}
-      </div>
-      <div>
-        <button onClick={() => setBody((b) => b + '<p>수정</p>')}>
-          body 수정 발생
-        </button>
-        <button onClick={rerenderBody}>body 수정 사항 적용</button>
+            <section className={styles.CategoryInputBody}>
+              <p>body state 미리보기</p>
+              <div className={styles.body}>{body}</div>
+            </section>
+
+            <section className={styles.CategoryInputBody}>
+              <button onClick={() => setBody((b) => b + '<p>수정</p>')}>
+                body 수정 발생
+              </button>
+              <button onClick={rerenderBody}>body 수정 사항 적용</button>
+            </section>
+          </article>
+        </div>
       </div>
     </div>
   );

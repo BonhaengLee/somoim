@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../../atoms/button/Button';
 import CardTitle from '../../atoms/cardTitle/CardTitle';
 import CustomRadioButton from '../../atoms/customRadioButton/CustomRadioButton';
 import styles from './CategoryInputForm.module.scss';
@@ -18,34 +19,44 @@ const CategoryInputForm = (props: {
   values: {
     category: string;
     content: string;
-    fee: 0;
+    fee: number;
     finishAt: string; // finish_at
     frequency: string;
-    maxAge: 0; //
-    minAge: 0; //
-    numOfPeople: 0;
+    maxAge: number; //
+    minAge: number; //
+    numOfPeople: number;
     place: string;
     startAt: string; //
     thumbnail: string;
     title: string;
   };
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  disabled: boolean;
-}): JSX.Element => (
-  <div className={`${styles.bodyInner} ${styles.CategoryInputWrapper}`}>
-    <div className={styles.CategoryInputFlexContainer}>
-      <div className={styles.CategoryInputContainer}>
-        <article className={styles.CategoryInputCard}>
-          <section className={styles.CategoryInputHeader}>
-            <CardTitle label="어떤 카테고리와 연관이 있나요?" />
-          </section>
-          <section className={styles.CategoryInputBody}>
-            <CustomRadioButton labels={Categories} />
-          </section>
-        </article>
+  // disabled: boolean;
+}): JSX.Element => {
+  const Continue = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    props.nextStep();
+  };
+
+  return (
+    <div className={`${styles.bodyInner} ${styles.CategoryInputWrapper}`}>
+      <div className={styles.CategoryInputFlexContainer}>
+        <div className={styles.CategoryInputContainer}>
+          <article className={styles.CategoryInputCard}>
+            <section className={styles.CategoryInputHeader}>
+              <CardTitle label="어떤 카테고리와 연관이 있나요?" />
+            </section>
+            <section className={styles.CategoryInputBody}>
+              <CustomRadioButton eName="category" labels={Categories} />
+            </section>
+            <section>
+              <Button handleClick={Continue}>다음</Button>
+            </section>
+          </article>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default CategoryInputForm;
