@@ -1,7 +1,8 @@
-import styles from '../styles/Home.module.scss';
+import React from 'react';
 import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
+import styles from '../styles/Home.module.scss';
 import banner from '../public/assets/images/gather-banner.jpeg';
 import banner2 from '../public/assets/images/gather-banner-flower.png';
 import Accordian from '../components/organisms/accordian/Accordian';
@@ -22,11 +23,11 @@ export default function Home(props: { imageDynamic: string }) {
               <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
-                loop={true}
+                loop
                 pagination={{
                   clickable: true,
                 }}
-                navigation={true}
+                navigation
                 autoplay={{
                   delay: 2500,
                   disableOnInteraction: false,
@@ -87,14 +88,17 @@ export default function Home(props: { imageDynamic: string }) {
                     url: './assets/icons/icon-foreignLanguage.png',
                   },
                 ].map((item, idx) => (
-                  <li key={idx}>
-                    <button onClick={() => console.log(item.label)}>
+                  <li key={item.url}>
+                    <button
+                      type="button"
+                      onClick={() => console.log(item.label)}
+                    >
                       <img src={item.url} alt="" />
                       <p>{item.label}</p>
                     </button>
                   </li>
                 ))}
-                <li className="blank"></li>
+                <li className="blank" />
               </ul>
             </article>
           </section>
