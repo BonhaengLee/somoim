@@ -63,7 +63,8 @@
     ],
     "operator-linebreak": 0,
     "no-unused-expressions": 1,
-    "trailing-comma": false
+    "react/destructuring-assignment": 0,
+    "comma-dangle": 0
   },
   "settings": {
     "react": {

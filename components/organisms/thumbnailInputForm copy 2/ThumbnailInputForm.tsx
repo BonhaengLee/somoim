@@ -34,9 +34,9 @@ const ThumbnailInputForm = (props: {
   };
 
   const [imgBase64, setImgBase64] = useState(''); // 파일 base64
-  const [imgFile, setImgFile] = useState(null); //파일
+  const [imgFile, setImgFile] = useState(null); // 파일
   const handleChangeFile = (event) => {
-    let reader = new FileReader();
+    const reader = new FileReader();
 
     reader.onloadend = () => {
       // 2. 읽기가 완료되면 아래코드가 실행됩니다.
@@ -69,6 +69,7 @@ const ThumbnailInputForm = (props: {
                     width: '300px',
                     height: '300px',
                   }}
+                  alt=""
                 />
               ) : (
                 <div
@@ -77,7 +78,7 @@ const ThumbnailInputForm = (props: {
                     width: '360px',
                     height: '350px',
                   }}
-                ></div>
+                />
               )}
               <div>
                 <input
