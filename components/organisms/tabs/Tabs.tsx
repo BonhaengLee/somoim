@@ -8,11 +8,13 @@ const Tabs = (props): JSX.Element => {
   return (
     <ul className={styles.tabs}>
       {props.tabItems.map((item, idx) => (
-        <li key={idx}>
-          <button onClick={() => onClick(item)}>{item}</button>
+        <li key={item}>
+          <button type="button" onClick={() => onClick(item)}>
+            {item}
+          </button>
         </li>
       ))}
-      <li className="blank"></li>
+      <li className="blank" />
     </ul>
   );
 };

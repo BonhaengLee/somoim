@@ -9,8 +9,6 @@ import styles from './Profile.module.scss';
 //   background-position: center center;
 // `;
 
-const Profile = (): JSX.Element => {
-  return <div className={styles.profileImage} />;
-};
+const Profile = (): JSX.Element => <div className={styles.profileImage} />;
 
 export default Profile;

@@ -24,14 +24,15 @@ const Login = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    if (name === 'id')
+    if (name === 'id') {
       !idCheckRgx(value)
         ? setInputCheck({ ...inputCheck, idCheck: false })
         : setInputCheck({ ...inputCheck, idCheck: true });
-    else if (name === 'password')
+    } else if (name === 'password') {
       !passwordCheckRgx(value)
         ? setInputCheck({ ...inputCheck, passwordCheck: false })
         : setInputCheck({ ...inputCheck, passwordCheck: true });
+    }
     setLoginInput({ ...loginInput, [name]: value });
   };
 

@@ -1,6 +1,6 @@
 import React from 'react';
+import { AppProps } from 'next/dist/shared/lib/router/router';
 import MainLayout from './layout/MainLayout';
-import NavLayout from './layout/NavLayout';
 import '../styles/globals.scss';
 import '../styles/reset.css';
 import 'swiper/swiper.scss';
@@ -9,7 +9,6 @@ import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 import { AuthProvider } from '../lib/auth';
 import { ReactQueryProvider } from '../lib/ReactQueryProvider';
-import { AppProps } from 'next/dist/shared/lib/router/router';
 import DefaultLayout from './layout/DefaultLayout';
 
 function MyApp({ Component, pageProps }: any) {

@@ -19,7 +19,7 @@ const submitFormHandler = async ({ name }) => {
 
 export default function PostUsingMutation() {
   const { mutate, data, status } = useMutation(submitFormHandler, {
-    //useMutation은 Object로 반환된다. arr X
+    // useMutation은 Object로 반환된다. arr X
     onSuccess: () => {
       alert('Successfully Posted');
     },
@@ -53,7 +53,7 @@ export default function PostUsingMutation() {
           Submit
         </button>
       </form>
-      {status == 'success' && (
+      {status === 'success' && (
         <strong style={{ marginTop: '20px' }}>response :{data.userId}</strong>
       )}
     </div>

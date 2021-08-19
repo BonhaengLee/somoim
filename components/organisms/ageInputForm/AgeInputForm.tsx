@@ -46,7 +46,7 @@ const AgeInputForm = (props: {
     category: string;
     content: string;
     fee: number;
-    finishAt: string; // finish_at
+    finishAt: string; // finishat
     frequency: string;
     maxAge: number; //
     minAge: number; //
@@ -69,15 +69,15 @@ const AgeInputForm = (props: {
   };
 
   // @ : menu1
-  const [isOpen_1, setIsOpen_1] = useState(false);
-  const [selectedOption_1, setSelectedOption_1] = useState(null);
+  const [isOpen1, setIsOpen1] = useState(false);
+  const [selectedOption1, setSelectedOption1] = useState(null);
 
-  const toggling_1 = () => setIsOpen_1(!isOpen_1);
+  const toggling1 = () => setIsOpen1(!isOpen1);
 
-  const onOptionClicked_1 = (value: any) => () => {
-    setSelectedOption_1(value);
-    setIsOpen_1(false);
-    console.log(selectedOption_1);
+  const onOptionClicked1 = (value: any) => () => {
+    setSelectedOption1(value);
+    setIsOpen1(false);
+    console.log(selectedOption1);
     // setModelForm({
     //   ...modelForm,
     //   gender: value,
@@ -85,15 +85,15 @@ const AgeInputForm = (props: {
   };
 
   // @ : menu2
-  const [isOpen_2, setIsOpen_2] = useState(false);
-  const [selectedOption_2, setSelectedOption_2] = useState(null);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [selectedOption2, setSelectedOption2] = useState(null);
 
-  const toggling_2 = () => setIsOpen_2(!isOpen_2);
+  const toggling2 = () => setIsOpen2(!isOpen2);
 
-  const onOptionClicked_2 = (value: any) => () => {
-    setSelectedOption_2(value);
-    setIsOpen_2(false);
-    console.log(selectedOption_2);
+  const onOptionClicked2 = (value: any) => () => {
+    setSelectedOption2(value);
+    setIsOpen2(false);
+    console.log(selectedOption2);
     // setModelForm({
     //   ...modelForm,
     //   gender: value,
@@ -110,19 +110,19 @@ const AgeInputForm = (props: {
                 <article>
                   <h2>최소 나이를 설정하세요</h2>
                   <div className={styles.DropDownContainer}>
-                    <div className={styles.DropDownHeader} onClick={toggling_1}>
+                    <div className={styles.DropDownHeader} onClick={toggling1}>
                       <div>
-                        <p>{selectedOption_1 || '최소 나이'}</p>
+                        <p>{selectedOption1 || '최소 나이'}</p>
                         <div />
                       </div>
                     </div>
-                    {isOpen_1 && (
+                    {isOpen1 && (
                       <div className={styles.DropDownListContainer}>
                         <ul className={styles.DropDownList}>
                           {ages.map((option) => (
                             <li
                               className={styles.ListItem}
-                              onClick={onOptionClicked_1(option)}
+                              onClick={onOptionClicked1(option)}
                               key={Math.random()}
                             >
                               {option}
@@ -136,19 +136,19 @@ const AgeInputForm = (props: {
                 <article>
                   <h2>최대 나이를 설정하세요</h2>
                   <div className={styles.DropDownContainer}>
-                    <div className={styles.DropDownHeader} onClick={toggling_2}>
+                    <div className={styles.DropDownHeader} onClick={toggling2}>
                       <div>
-                        <p>{selectedOption_2 || '최대 나이'}</p>
+                        <p>{selectedOption2 || '최대 나이'}</p>
                         <div />
                       </div>
                     </div>
-                    {isOpen_2 && (
+                    {isOpen2 && (
                       <div className={styles.DropDownListContainer}>
                         <ul className={styles.DropDownList}>
                           {ages.map((option) => (
                             <li
                               className={styles.ListItem}
-                              onClick={onOptionClicked_2(option)}
+                              onClick={onOptionClicked2(option)}
                               key={Math.random()}
                             >
                               {option}

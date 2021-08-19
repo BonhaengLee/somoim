@@ -25,7 +25,7 @@ export default function Features() {
         {status === 'success' &&
           data.results.map((item, idx) => (
             <div
-              key={idx}
+              key={item.name}
               style={{
                 boxShadow: '0px 0px 16px rgba(0, 0, 0, 0.05)',
                 padding: '10px',
@@ -37,7 +37,10 @@ export default function Features() {
             >
               <strong>{item.name}</strong>
               <p>{item.gender}</p>
-              <p>Hair Color: {item.hair_color}</p>
+              <p>
+                Hair Color:
+                {item.hair_color}
+              </p>
             </div>
           ))}
       </div>

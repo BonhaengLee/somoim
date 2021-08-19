@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function QuillEditor({ body, handleQuillChange, mountBody }) {
   const quillElement = useRef();
@@ -38,7 +38,7 @@ export default function QuillEditor({ body, handleQuillChange, mountBody }) {
           ['blockquote', 'link', 'code-block', 'formula', 'image', 'video'], // media
         ],
       };
-      //@ts-ignore
+      // @ts-ignore
       quillInstance.current = new window.Quill(quillElement.current, {
         modules: {
           history: {
@@ -76,5 +76,5 @@ export default function QuillEditor({ body, handleQuillChange, mountBody }) {
     }
   }, [isError, mountBody]);
 
-  return <div ref={quillElement} style={{ minHeight: '305px' }}></div>;
+  return <div ref={quillElement} style={{ minHeight: '305px' }} />;
 }

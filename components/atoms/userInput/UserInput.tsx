@@ -7,17 +7,15 @@ const UserInput = (props: {
   placeholder: string;
   value: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}): JSX.Element => {
-  return (
-    <input
-      className={styles.inputBox}
-      type={props.inputType}
-      name={props.name}
-      placeholder={props.placeholder}
-      value={props.value || ''}
-      onChange={props.onChange}
-    />
-  );
-};
+}): JSX.Element => (
+  <input
+    className={styles.inputBox}
+    type={props.inputType}
+    name={props.name}
+    placeholder={props.placeholder}
+    value={props.value || ''}
+    onChange={props.onChange}
+  />
+);
 
 export default UserInput;

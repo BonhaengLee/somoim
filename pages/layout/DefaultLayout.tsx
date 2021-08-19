@@ -4,8 +4,6 @@ const DefaultLayout = ({
   children,
 }: {
   children: JSX.Element;
-}): JSX.Element => {
-  return <div>{children}</div>;
-};
+}): JSX.Element => <div>{children}</div>;
 
 export default DefaultLayout;
