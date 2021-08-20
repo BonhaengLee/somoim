@@ -75,8 +75,11 @@ const ThumbnailInputForm = (props: {
       }
     };
     if (event.target.files[0]) {
-      reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
-      setImgFile(event.target.files[0]); // 파일 상태 업데이트
+      // reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
+      // setImgFile(event.target.files[0]); // 파일 상태 업데이트
+      // * :  파일을 배열로 보내줘야 하는가?
+      reader.readAsDataURL(event.target.files); // 1. 파일을 읽어 버퍼에 저장합니다.
+      setImgFile(event.target.files); // 파일 상태 업데이트
     }
   };
 
@@ -86,59 +89,69 @@ const ThumbnailInputForm = (props: {
     props.nextStep();
   };
 
-  // useEffect(() => {
-  //   if (imgBase64 !== '') {
-  //     const fd = new FormData();
-  //     fd.append('file', imgBase64);
-  //     getThumbnailUrl(fd); // * : base64로 썸네일 url 업로드 요청
-  //   }
-  // }, [getThumbnailUrl, imgBase64]);
+  const onClickHandler = (event) => {
+    const formData = new FormData();
+    formData.append(
+      'uploadImages',
+      this.state.selectedFiles,
+      this.state.selectedFiles.name
+    );
+    const config = {
+      headers: {
+        'content-type': 'multipart/form-data',
+        authorization: localStorage.getItem('AccessToken') as string,
+      },
+    };
+    axios.post('uploadAPI', formData, config);
+  };
+
+    <button onClick={this.onClickHandler}>저장하기</button>;
 
   console.log(imgFile, imgBase64);
 
   return (
-    <div className={`${styles.bodyInner} ${styles.ThumbnailInputWrapper}`}>
+      <div className={`${styles.bodyInner} ${styles.ThumbnailInputWrapper}`}>
       <div className={styles.ThumbnailInputFlexContainer}>
-        <div className={styles.ThumbnailInputContainer}>
+          <div className={styles.ThumbnailInputContainer}>
           <article className={styles.ThumbnailInputCard}>
-            <section className={styles.ThumbnailInputHeader}>
+              <section className={styles.ThumbnailInputHeader}>
               <CardTitle label="모임 대표 이미지를 등록하세요" />
             </section>
-            <section className={styles.ThumbnailInputBody}>
+              <section className={styles.ThumbnailInputBody}>
               {imgBase64 ? (
-                <img
+                  <img
                   src={imgBase64}
                   style={{
-                    width: '300px',
-                    height: '300px',
-                  }}
+                      width: '300px',
+                      height: '300px',
+                    }}
                   alt=""
                 />
-              ) : (
+                ) : (
                 <div
-                  style={{
+                    style={{
                     backgroundColor: '#efefef',
                     width: '360px',
                     height: '350px',
                   }}
-                />
-              )}
+                  />
+                )}
               <div>
-                <input
+                  <input
                   type="file"
                   name="imgFile"
                   id="imgFile"
                   onChange={handleChangeFile}
                 />
-              </div>
+                </div>
             </section>
-            <section className={styles.ThumbnailInputFooter}>
+              <section className={styles.ThumbnailInputFooter}>
               <Button handleClick={Previous}>이전</Button>
               <Button handleClick={Continue}>다음</Button>
             </section>
-          </article>
+            </article>
         </div>
-      </div>
+        </div>
     </div>
   );
 };

@@ -173,11 +173,17 @@ const Create = (): JSX.Element => {
     switch (step) {
       case 1:
         return (
-          <CategoryInputForm
+          // <CategoryInputForm
+          //   nextStep={nextStep}
+          //   values={createInput}
+          //   handleChange={handleChange}
+          //   // disabled={disabledUserDt}
+          // />
+          <ThumbnailInputForm
+            prevStep={prevStep}
             nextStep={nextStep}
             values={createInput}
-            handleChange={handleChange}
-            // disabled={disabledUserDt}
+            handleChange={handleChangeOption}
           />
         );
       case 2:
