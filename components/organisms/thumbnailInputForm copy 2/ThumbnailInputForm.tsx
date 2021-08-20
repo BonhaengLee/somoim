@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Button from '../../atoms/button/Button';
 import CardTitle from '../../atoms/cardTitle/CardTitle';
 import styles from './ThumbnailInputForm.module.scss';
@@ -35,12 +35,6 @@ const ThumbnailInputForm = (props: {
   const getThumbnailUrl = async (img: any) => {
     const formData = new FormData();
     formData.append('multipartFile', img);
-    // const formData = { files: imgBase64 };
-    // console.log(formData);
-    console.log(
-      'access',
-      (localStorage.getItem('AccessToken') as string).replaceAll('"', '')
-    );
 
     try {
       const url = `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/board/thumbnail`;
@@ -54,8 +48,8 @@ const ThumbnailInputForm = (props: {
           },
         })
         .then((res) => {
-          // then print response status
-          console.warn(res.data);
+          // console.warn(res.data);
+          props.handleChange('thumbnail', res.data.Thumbnail_URL);
         })
         .catch((err) => {
           console.log(err);
@@ -67,22 +61,15 @@ const ThumbnailInputForm = (props: {
 
   const handleChangeFile = (event) => {
     const reader = new FileReader();
-    // const fd = new FormData();
-    // fd.append('file', file);
-    // Object.values(imgFile).forEach((file: any) => fd.append('file', file));
 
     reader.onloadend = () => {
-      // 2. 읽기가 완료되면 아래코드가 실행됩니다.
       const base64 = reader.result;
       if (base64) {
         setImgBase64(base64.toString()); // 파일 base64 상태 업데이트
-        // const fd = new FormData();
-        // fd.append('file', base64.toString());
-        // getThumbnailUrl(fd); // * : base64로 썸네일 url 업로드 요청
       }
     };
     if (event.target.files[0]) {
-      reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
+      reader.readAsDataURL(event.target.files[0]); // 파일을 읽어 버퍼에 저장합니다.
       setImgFile(event.target.files[0]); // 파일 상태 업데이트
     }
   };
