@@ -32,17 +32,18 @@ const ThumbnailInputForm = (props: {
   const [imgBase64, setImgBase64] = useState(''); // 파일 base64
   const [imgFile, setImgFile] = useState(null); // 파일
 
-  const getThumbnailUrl = async () => {
-    const formData = { files: imgBase64 };
+  const getThumbnailUrl = async (img: any) => {
+    const formData = { multipartFile: img };
+    // const formData = { files: imgBase64 };
     console.log(formData);
 
     try {
-      const url = `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/board/images`;
-
+      const url = `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/board/thumbnail`;
       axios
         .post(url, formData, {
           headers: {
-            'Content-Type': 'multipart/form-data',
+            'Content-Type': false,
+            authorization: localStorage.getItem('AccessToken') as string,
           },
         })
         .then((res) => {
@@ -81,7 +82,7 @@ const ThumbnailInputForm = (props: {
 
   const Continue = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    getThumbnailUrl();
+    getThumbnailUrl(imgBase64);
     props.nextStep();
   };
 
