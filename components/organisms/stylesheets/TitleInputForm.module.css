@@ -1,0 +1,74 @@
+@charset "UTF-8";
+/*변수*/
+.bodyInner.TitleInputWrapper {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.bodyInner.TitleInputWrapper .TitleInputFlexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 100vw;
+  width: auto;
+  min-height: 100vh;
+  height: auto;
+}
+
+.bodyInner.TitleInputWrapper .TitleInputFlexContainer .TitleInputContainer {
+  width: calc(100% - 16px);
+  max-width: 400px;
+}
+
+.bodyInner.TitleInputWrapper .TitleInputFlexContainer .TitleInputContainer .TitleInputCard {
+  background: #FAFAFA;
+  -webkit-box-shadow: 3px 3px 8px rgba(17, 17, 17, 0.4);
+          box-shadow: 3px 3px 8px rgba(17, 17, 17, 0.4);
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.bodyInner.TitleInputWrapper .TitleInputFlexContainer .TitleInputContainer .TitleInputCard .TitleInputHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.bodyInner.TitleInputWrapper .TitleInputFlexContainer .TitleInputContainer .TitleInputCard .TitleInputHeader .subTitle {
+  color: rgba(0, 0, 0, 0.35);
+  word-break: keep-all;
+}
+
+.bodyInner.TitleInputWrapper .TitleInputFlexContainer .TitleInputContainer .TitleInputCard .TitleInputBody {
+  margin-bottom: 253px;
+}
+
+.bodyInner.TitleInputWrapper .TitleInputFlexContainer .TitleInputContainer .TitleInputCard .TitleInputFooter {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.bodyInner.TitleInputWrapper .TitleInputFlexContainer .TitleInputContainer .TitleInputCard .TitleInputFooter button {
+  margin-right: 5px;
+}
+
+.bodyInner.TitleInputWrapper .TitleInputFlexContainer .TitleInputContainer .TitleInputCard .TitleInputFooter button:last-child {
+  margin-right: 0;
+}

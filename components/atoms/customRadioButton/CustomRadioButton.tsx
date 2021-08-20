@@ -8,6 +8,7 @@ interface ILabels {
 const CustomRadioButton = (props: {
   eName: string;
   labels: ILabels[];
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }): JSX.Element => (
   <>
     <div className={styles.colorSelectorContainer}>
@@ -19,6 +20,7 @@ const CustomRadioButton = (props: {
             type="radio"
             name={props.eName}
             value={l.name}
+            onChange={props.handleChange}
           />
           <label className="radioLabel" htmlFor={l.name} />
           {l.name}

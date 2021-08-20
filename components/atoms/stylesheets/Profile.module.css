@@ -1,0 +1,9 @@
+@charset "UTF-8";
+/*변수*/
+.profileImage {
+  border-radius: 50%;
+  color: #666;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}

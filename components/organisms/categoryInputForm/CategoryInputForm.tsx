@@ -47,7 +47,11 @@ const CategoryInputForm = (props: {
               <CardTitle label="어떤 카테고리와 연관이 있나요?" />
             </section>
             <section className={styles.CategoryInputBody}>
-              <CustomRadioButton eName="category" labels={Categories} />
+              <CustomRadioButton
+                eName="category"
+                labels={Categories}
+                handleChange={props.handleChange}
+              />
             </section>
             <section>
               <Button handleClick={Continue}>다음</Button>

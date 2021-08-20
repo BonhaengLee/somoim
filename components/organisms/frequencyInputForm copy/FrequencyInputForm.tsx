@@ -52,10 +52,14 @@ const FrequencyInputForm = (props: {
         <div className={styles.FrequencyInputContainer}>
           <article className={styles.FrequencyInputCard}>
             <section className={styles.FrequencyInputHeader}>
-              <CardTitle label="모임빈도" />
+              <CardTitle label="모임 빈도" />
             </section>
             <section className={styles.FrequencyInputBody}>
-              <CustomRadioButton eName="frequency" labels={Frequencies} />
+              <CustomRadioButton
+                eName="frequency"
+                labels={Frequencies}
+                handleChange={props.handleChange}
+              />
             </section>
             <section className={styles.FrequencyInputFooter}>
               <Button handleClick={Previous}>이전</Button>

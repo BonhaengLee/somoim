@@ -39,6 +39,7 @@
                             margin-bottom: 40px;
                           }
                           .DropDownContainer {
+                            cursor: pointer;
                             padding-bottom: 0;
                             margin-bottom: -20px;
                             .DropDownHeader {
@@ -49,9 +50,7 @@
                               box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
                               font-weight: 500;
                               font-size: 1.3rem;
-                              color: rgb(117, 117, 117);
                               background: #ffffff;
-                              font-style: italic;
                               & > div {
                                   margin-left: 10px;
                                   width: 100%;
@@ -74,18 +73,17 @@
                             }
                             .DropDownListContainer {
                               .DropDownList {
-                                width: 360px;
+                                width: 362px;
                                 height: 230px;
                                 position: absolute;
                                 padding: 0;
                                 margin: 0;
-                                padding-left: 0.75em;
                                 background: #ffffff;
                                 border: 2px solid #e5e5e5;
                                 box-sizing: border-box;
                                 color: #000;
-                                font-size: 20px;
-                                font-weight: 700;
+                                font-size: 1.3rem;
+                                font-weight: 500;
                                 overflow-y: scroll;
                                 box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
                                 &:first-child {
@@ -94,6 +92,10 @@
                                 .ListItem {
                                   list-style: none;
                                   margin-bottom: 0.8em;
+                                  margin-right: .2em;
+                                  &:hover {
+                                    background: #e5e5e5;
+                                  }
                                 }
                               }
                             }

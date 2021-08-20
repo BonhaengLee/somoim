@@ -78,7 +78,8 @@
     "react/button-has-type": 0,
     "react/self-closing-comp": 0,
     "react/react-in-jsx-scope": 0,
-    "spaced-comment": 0
+    "spaced-comment": 0,
+    "no-plusplus": 0
 
   },
   "settings": {

@@ -1,0 +1,164 @@
+@charset "UTF-8";
+/*변수*/
+.bodyInner.AgeInputWrapper {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 100vw;
+  width: auto;
+  min-height: 100vh;
+  height: auto;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer {
+  width: calc(100% - 16px);
+  max-width: 400px;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard {
+  background: #FAFAFA;
+  -webkit-box-shadow: 3px 3px 8px rgba(17, 17, 17, 0.4);
+          box-shadow: 3px 3px 8px rgba(17, 17, 17, 0.4);
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputHeader .subAge {
+  color: rgba(0, 0, 0, 0.35);
+  word-break: keep-all;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody {
+  text-align: center;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article {
+  margin-bottom: 60px;
+  min-height: 140px;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article h2 {
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer {
+  padding-bottom: 0;
+  margin-bottom: -20px;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.35em;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #757575;
+  background: #ffffff;
+  font-style: italic;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownHeader > div {
+  margin-left: 10px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownHeader > div p {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 200px;
+          flex: 1 1 200px;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownHeader > div div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 1;
+          flex: 1 1 1;
+  margin-top: 7px;
+  background-image: url("../../../public/assets/icons/ic-polygon1.png");
+  width: 20px;
+  height: 18px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownListContainer .DropDownList {
+  width: 360px;
+  height: 230px;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  padding-left: 0.75em;
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+  overflow-y: scroll;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownListContainer .DropDownList:first-child {
+  padding-top: 0.4em;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownListContainer .DropDownList .ListItem {
+  list-style: none;
+  margin-bottom: 0.8em;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputFooter {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputFooter button {
+  margin-right: 5px;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputFooter button:last-child {
+  margin-right: 0;
+}

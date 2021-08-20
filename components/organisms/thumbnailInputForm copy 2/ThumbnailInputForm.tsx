@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import Button from '../../atoms/button/Button';
 import CardTitle from '../../atoms/cardTitle/CardTitle';
-import UserInput from '../../atoms/userInput/UserInput';
 import styles from './ThumbnailInputForm.module.scss';
 
 const ThumbnailInputForm = (props: {
@@ -21,28 +21,56 @@ const ThumbnailInputForm = (props: {
     thumbnail: string;
     title: string;
   };
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (name: string, value: string) => void;
   // disabled: boolean;
 }): JSX.Element => {
   const Previous = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     props.prevStep();
   };
-  const Continue = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    props.nextStep();
-  };
 
   const [imgBase64, setImgBase64] = useState(''); // 파일 base64
   const [imgFile, setImgFile] = useState(null); // 파일
+
+  const getThumbnailUrl = async () => {
+    const formData = { files: imgBase64 };
+    console.log(formData);
+
+    try {
+      const url = `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/board/images`;
+
+      axios
+        .post(url, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then((res) => {
+          // then print response status
+          console.warn(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleChangeFile = (event) => {
     const reader = new FileReader();
+    // const fd = new FormData();
+    // fd.append('file', file);
+    // Object.values(imgFile).forEach((file: any) => fd.append('file', file));
 
     reader.onloadend = () => {
       // 2. 읽기가 완료되면 아래코드가 실행됩니다.
       const base64 = reader.result;
       if (base64) {
         setImgBase64(base64.toString()); // 파일 base64 상태 업데이트
+        // const fd = new FormData();
+        // fd.append('file', base64.toString());
+        // getThumbnailUrl(fd); // * : base64로 썸네일 url 업로드 요청
       }
     };
     if (event.target.files[0]) {
@@ -51,7 +79,21 @@ const ThumbnailInputForm = (props: {
     }
   };
 
-  console.log(imgBase64);
+  const Continue = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    getThumbnailUrl();
+    props.nextStep();
+  };
+
+  // useEffect(() => {
+  //   if (imgBase64 !== '') {
+  //     const fd = new FormData();
+  //     fd.append('file', imgBase64);
+  //     getThumbnailUrl(fd); // * : base64로 썸네일 url 업로드 요청
+  //   }
+  // }, [getThumbnailUrl, imgBase64]);
+
+  console.log(imgFile, imgBase64);
 
   return (
     <div className={`${styles.bodyInner} ${styles.ThumbnailInputWrapper}`}>

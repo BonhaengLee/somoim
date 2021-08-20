@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/*변수*/
+.mainTitle {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+@media screen and (max-width: 500px) {
+  .mainTitle {
+    font-size: 1.8rem;
+  }
+}

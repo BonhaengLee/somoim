@@ -48,6 +48,10 @@ const Create = (): JSX.Element => {
     const { name, value } = e.target;
     setCreateInput({ ...createInput, [name]: value });
   };
+
+  const handleChangeOption = (name, value) => {
+    setCreateInput({ ...createInput, [name]: value });
+  };
   // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   //   const { name, value } = e.target;
 
@@ -77,53 +81,54 @@ const Create = (): JSX.Element => {
   // born : 생년월일( ) 숫자만(8글자)
   // email : 이메일 형식만 가능
   const createMeeting = async () => {
-    try {
-      const r = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/user/create`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            category: createInput.category,
-            content: createInput.content,
-            fee: createInput.fee,
-            finish_at: createInput.finishAt,
-            frequency: createInput.frequency,
-            max_age: createInput.maxAge,
-            min_age: createInput.minAge,
-            numOfPeople: createInput.numOfPeople,
-            place: createInput.place,
-            start_at: createInput.startAt,
-            thumbnail: createInput.thumbnail,
-            title: createInput.title,
-          }),
-        }
-      );
-      const res = await r.json();
+    // try {
+    //   const r = await fetch(
+    //     `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/user/create`,
+    //     {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //       },
+    //       body: JSON.stringify({
+    //         category: createInput.category,
+    //         content: createInput.content,
+    //         fee: createInput.fee,
+    //         finish_at: createInput.finishAt,
+    //         frequency: createInput.frequency,
+    //         max_age: createInput.maxAge,
+    //         min_age: createInput.minAge,
+    //         numOfPeople: createInput.numOfPeople,
+    //         place: createInput.place,
+    //         start_at: createInput.startAt,
+    //         thumbnail: createInput.thumbnail,
+    //         title: createInput.title,
+    //       }),
+    //     }
+    //   );
+    //   const res = await r.json();
 
-      if (res.status === 200) {
-        console.log('개설 성공');
-        console.log(res.statusText);
-        // history.push('/login');
-        Router.push('/login');
-      } else {
-        console.log(res.statusText);
-        // alert((await res.json()).message);
-      }
-    } catch (err) {
-      console.log(err);
-    }
+    //   if (res.status === 200) {
+    //     console.log('개설 성공');
+    //     console.log(res.statusText);
+    //     // history.push('/login');
+    //     Router.push('/login');
+    //   } else {
+    //     console.log(res.statusText);
+    //     // alert((await res.json()).message);
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    // }
+    console.log(createInput);
   };
 
   const [disabledUserDt, setDisabledUserDt] = useState(true);
   const [disabledPersonalDt, setDisabledPersonalDt] = useState(true);
-  const signUpRequest = () => {
-    // if (!disabledUserDt && !disabledPersonalDt) {
-    createMeeting();
-    // }
-  };
+  // const signUpRequest = () => {
+  //   // if (!disabledUserDt && !disabledPersonalDt) {
+  //   createMeeting();
+  //   // }
+  // };
 
   // const validUserDt =
   //   createInput.id !== '' &&
@@ -217,7 +222,7 @@ const Create = (): JSX.Element => {
             prevStep={prevStep}
             nextStep={nextStep}
             values={createInput}
-            handleChange={handleChange}
+            handleChange={handleChangeOption}
           />
         );
       case 7:
@@ -226,7 +231,8 @@ const Create = (): JSX.Element => {
             prevStep={prevStep}
             nextStep={nextStep}
             values={createInput}
-            handleChange={handleChange}
+            handleChange={handleChangeOption}
+            onChange={handleChange}
           />
         );
       case 8:
@@ -235,11 +241,17 @@ const Create = (): JSX.Element => {
             prevStep={prevStep}
             nextStep={nextStep}
             values={createInput}
-            handleChange={handleChange}
+            handleChange={handleChangeOption}
           />
         );
       case 9:
-        return <ContentsInputForm />;
+        return (
+          <ContentsInputForm
+            createMeeting={createMeeting}
+            values={createInput}
+            handleChange={handleChangeOption}
+          />
+        );
       default:
         return <></>; // do nothing
     }

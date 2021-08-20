@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import Button from '../../atoms/button/Button';
-import CardTitle from '../../atoms/cardTitle/CardTitle';
-import UserInput from '../../atoms/userInput/UserInput';
 import styles from './AgeInputForm.module.scss';
 
 const ages = [
@@ -56,7 +54,7 @@ const AgeInputForm = (props: {
     thumbnail: string;
     title: string;
   };
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (name: string, value: number) => void;
   // disabled: boolean;
 }): JSX.Element => {
   const Previous = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -74,14 +72,10 @@ const AgeInputForm = (props: {
 
   const toggling1 = () => setIsOpen1(!isOpen1);
 
-  const onOptionClicked1 = (value: any) => () => {
+  const onOptionClicked1 = (name: string, value: number) => () => {
     setSelectedOption1(value);
     setIsOpen1(false);
-    console.log(selectedOption1);
-    // setModelForm({
-    //   ...modelForm,
-    //   gender: value,
-    // });
+    props.handleChange(name, value);
   };
 
   // @ : menu2
@@ -90,14 +84,10 @@ const AgeInputForm = (props: {
 
   const toggling2 = () => setIsOpen2(!isOpen2);
 
-  const onOptionClicked2 = (value: any) => () => {
+  const onOptionClicked2 = (name: string, value: number) => () => {
     setSelectedOption2(value);
     setIsOpen2(false);
-    console.log(selectedOption2);
-    // setModelForm({
-    //   ...modelForm,
-    //   gender: value,
-    // });
+    props.handleChange(name, value);
   };
 
   return (
@@ -122,7 +112,7 @@ const AgeInputForm = (props: {
                           {ages.map((option) => (
                             <li
                               className={styles.ListItem}
-                              onClick={onOptionClicked1(option)}
+                              onClick={onOptionClicked1('minAge', option)}
                               key={Math.random()}
                             >
                               {option}
@@ -148,7 +138,7 @@ const AgeInputForm = (props: {
                           {ages.map((option) => (
                             <li
                               className={styles.ListItem}
-                              onClick={onOptionClicked2(option)}
+                              onClick={onOptionClicked2('maxAge', option)}
                               key={Math.random()}
                             >
                               {option}

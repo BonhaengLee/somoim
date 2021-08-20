@@ -1,0 +1,242 @@
+@charset "UTF-8";
+/*변수*/
+@font-face {
+  font-family: 'NanumSquareRound';
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.homeWrapper .homeContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding-top: 80px;
+}
+
+.homeWrapper .homeContainer .image {
+  width: 50%;
+  min-width: 50%;
+  height: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .homeWrapper .homeContainer .image {
+    display: none;
+  }
+}
+
+.homeWrapper .homeContainer .image img {
+  max-height: 505px;
+  vertical-align: bottom;
+  width: 100%;
+  height: 505px;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.homeWrapper .categoryContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding-top: 80px;
+}
+
+.bodyInner {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.bodyInner.homeFlexContainer {
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.bodyInner.homeFlexContainer .homeContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeBanner {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 40px;
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeBanner .bannerContents {
+  width: 100%;
+  height: 100%;
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeBanner .bannerContents .swiperContainer {
+  height: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeBanner .bannerContents .swiperContainer .swiperSlide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeBanner .bannerContents .swiperContainer .swiperSlide div {
+  width: 100%;
+  max-height: 360px;
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeBanner .bannerContents .swiperContainer .swiperSlide div img {
+  width: 100%;
+  height: 100%;
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  width: calc(100% - 48px);
+  height: 200px;
+}
+
+@media (max-width: 800px) {
+  .bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList {
+    height: 25vw;
+  }
+}
+
+@media (max-width: 520px) {
+  .bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList {
+    height: 210px;
+  }
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList .homeCategoryHeader {
+  width: 100%;
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList .homeCategoryHeader h2 {
+  width: 100%;
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList .homeCategoryHeader ul {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList .homeCategoryHeader ul li {
+  padding-bottom: 20px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 14%;
+          flex: 1 1 14%;
+  /* flex-grow: 1; flex-shrink: 1;아이템이 flex-basis보다 작아질 수 있음 flex-basis: 14%; */
+  text-align: center;
+}
+
+@media (max-width: 516px) {
+  .bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList .homeCategoryHeader ul li {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 25%;
+            flex: 1 1 25%;
+  }
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList .homeCategoryHeader ul li:last-child button {
+  background: none;
+  border: 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 585px) {
+  .bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList .homeCategoryHeader ul li:last-child button {
+    font-size: 13px;
+  }
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList .homeCategoryHeader ul li:last-child button img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 900px) {
+  .bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList .homeCategoryHeader ul li:last-child button img {
+    width: 7.84vw;
+    height: 7.84vw;
+  }
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList .homeCategoryHeader ul li button {
+  background: none;
+  border: 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 585px) {
+  .bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList .homeCategoryHeader ul li button {
+    font-size: 13px;
+  }
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList .homeCategoryHeader ul li button img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 900px) {
+  .bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeCategoryList .homeCategoryHeader ul li button img {
+    width: 7.84vw;
+    height: 7.84vw;
+  }
+}
+
+.bodyInner.homeFlexContainer .homeContainer .homeWrapper .homeItemList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  width: calc(100% - 48px);
+  height: 258px;
+}

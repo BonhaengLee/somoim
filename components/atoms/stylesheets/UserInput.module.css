@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/*변수*/
+.inputBox {
+  font-size: 1.3rem;
+  padding: 0.4em 0.2em;
+  border: none;
+  border-bottom: 2px solid #333;
+  width: 100%;
+  display: block;
+}
+
+.inputBox:focus {
+  outline: none;
+  border-bottom: 2px solid blueviolet;
+}
+
+.inputBox::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.inputBox:-ms-input-placeholder {
+  font-style: italic;
+}
+
+.inputBox::-ms-input-placeholder {
+  font-style: italic;
+}
+
+.inputBox::placeholder {
+  font-style: italic;
+}
+
+@media screen and (max-width: 500px) {
+  .inputBox::-webkit-input-placeholder {
+    font-size: 4vw;
+  }
+  .inputBox:-ms-input-placeholder {
+    font-size: 4vw;
+  }
+  .inputBox::-ms-input-placeholder {
+    font-size: 4vw;
+  }
+  .inputBox::placeholder {
+    font-size: 4vw;
+  }
+}

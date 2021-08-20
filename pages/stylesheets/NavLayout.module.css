@@ -1,0 +1,97 @@
+@charset "UTF-8";
+/*변수*/
+.wrapper {
+  background-color: #fbfbfb;
+}
+
+.navWrapper {
+  max-width: 1200px;
+  width: calc(100% - 48px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.navBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.categoryBox {
+  text-align: left;
+  border-bottom: 1px solid rgba(217, 217, 223, 0.3);
+}
+
+.categoryBox .categoryNav .navBtn {
+  display: inline-block;
+  padding: 5px 30px 10px 30px;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #4b4b4b;
+}
+
+.categoryBox .categoryNav .btnBox {
+  float: right;
+  padding-top: 2px;
+}
+
+.categoryBox .categoryNav .btnBox button {
+  width: 134px;
+}
+
+.leftNav {
+  width: 55%;
+  cursor: pointer;
+  padding: 16px 0 5px 0;
+  text-align: center;
+}
+
+.leftNav section article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 4px;
+}
+
+.leftNav section article h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: blueviolet;
+  line-height: 20px;
+}
+
+.leftNav section article img {
+  width: 28px;
+  height: 28px;
+  margin-right: 4px;
+}
+
+.rightNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 45%;
+  padding: 16px 0 5px 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+@media screen and (max-width: 500px) {
+  .rightNav {
+    font-size: 1.1rem;
+  }
+}
+
+.rightNav span a {
+  margin-right: 8px;
+}
+
+.rightNav div {
+  border-right: 1px solid #000;
+}

@@ -1,0 +1,86 @@
+@charset "UTF-8";
+/*변수*/
+.bodyInner.FeeInputWrapper {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.bodyInner.FeeInputWrapper .FeeInputFlexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 100vw;
+  width: auto;
+  min-height: 100vh;
+  height: auto;
+}
+
+.bodyInner.FeeInputWrapper .FeeInputFlexContainer .FeeInputContainer {
+  width: calc(100% - 16px);
+  max-width: 400px;
+}
+
+.bodyInner.FeeInputWrapper .FeeInputFlexContainer .FeeInputContainer .FeeInputCard {
+  background: #FAFAFA;
+  -webkit-box-shadow: 3px 3px 8px rgba(17, 17, 17, 0.4);
+          box-shadow: 3px 3px 8px rgba(17, 17, 17, 0.4);
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.bodyInner.FeeInputWrapper .FeeInputFlexContainer .FeeInputContainer .FeeInputCard .FeeInputHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.bodyInner.FeeInputWrapper .FeeInputFlexContainer .FeeInputContainer .FeeInputCard .FeeInputHeader .subFee {
+  color: rgba(0, 0, 0, 0.35);
+  word-break: keep-all;
+}
+
+.bodyInner.FeeInputWrapper .FeeInputFlexContainer .FeeInputContainer .FeeInputCard .FeeInputBody {
+  margin-bottom: 339px;
+}
+
+.bodyInner.FeeInputWrapper .FeeInputFlexContainer .FeeInputContainer .FeeInputCard .FeeInputBody input {
+  float: left;
+  width: 90%;
+}
+
+.bodyInner.FeeInputWrapper .FeeInputFlexContainer .FeeInputContainer .FeeInputCard .FeeInputBody p {
+  float: right;
+  width: 5%;
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.bodyInner.FeeInputWrapper .FeeInputFlexContainer .FeeInputContainer .FeeInputCard .FeeInputFooter {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.bodyInner.FeeInputWrapper .FeeInputFlexContainer .FeeInputContainer .FeeInputCard .FeeInputFooter button {
+  margin-right: 5px;
+}
+
+.bodyInner.FeeInputWrapper .FeeInputFlexContainer .FeeInputContainer .FeeInputCard .FeeInputFooter button:last-child {
+  margin-right: 0;
+}

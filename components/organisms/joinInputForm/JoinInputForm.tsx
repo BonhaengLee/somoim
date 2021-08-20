@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Button from '../../atoms/button/Button';
-import CardTitle from '../../atoms/cardTitle/CardTitle';
 import UserInput from '../../atoms/userInput/UserInput';
 import styles from './JoinInputForm.module.scss';
 
@@ -56,7 +55,8 @@ const JoinInputForm = (props: {
     thumbnail: string;
     title: string;
   };
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (name: string, value: number) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   // disabled: boolean;
 }): JSX.Element => {
   const Previous = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -74,14 +74,10 @@ const JoinInputForm = (props: {
 
   const toggling = () => setIsOpen(!isOpen);
 
-  const onOptionClicked = (value: any) => () => {
+  const onOptionClicked = (name: string, value: number) => () => {
     setSelectedOption(value);
     setIsOpen(false);
-    console.log(selectedOption);
-    // setModelForm({
-    //   ...modelForm,
-    //   gender: value,
-    // });
+    props.handleChange(name, value);
   };
 
   return (
@@ -106,7 +102,7 @@ const JoinInputForm = (props: {
                           {joins.map((option) => (
                             <li
                               className={styles.ListItem}
-                              onClick={onOptionClicked(option)}
+                              onClick={onOptionClicked('numOfPeople', option)}
                               key={Math.random()}
                             >
                               {option}
@@ -124,7 +120,7 @@ const JoinInputForm = (props: {
                     name="place"
                     placeholder="예) xx스터디 카페 xx점"
                     value={props.values.place}
-                    onChange={props.handleChange}
+                    onChange={props.onChange}
                   />
                 </article>
               </div>
