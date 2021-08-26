@@ -4,15 +4,15 @@ import Router from 'next/router';
 import Image from 'next/image';
 import banner from '../../public/assets/images/gather-banner-flower.png';
 import styles from './create.module.scss';
-import CategoryInputForm from '../../components/organisms/categoryInputForm/CategoryInputForm';
-import ContentsInputForm from '../../components/organisms/contentsInputForm';
-import TitleInputForm from '../../components/organisms/titleInputForm/TitleInputForm';
-import FrequencyInputForm from '../../components/organisms/frequencyInputForm copy/FrequencyInputForm';
-import DateInputForm from '../../components/organisms/dateInputForm/DateInputForm';
-import FeeInputForm from '../../components/organisms/feeInputForm copy/FeeInputForm';
-import AgeInputForm from '../../components/organisms/ageInputForm/AgeInputForm';
-import JoinInputForm from '../../components/organisms/joinInputForm/JoinInputForm';
-import ThumbnailInputForm from '../../components/organisms/thumbnailInputForm copy 2/ThumbnailInputForm';
+import CategoryInputForm from '../../components/main/categoryInputForm/CategoryInputForm';
+import ContentsInputForm from '../../components/main/contentsInputForm';
+import TitleInputForm from '../../components/main/titleInputForm/TitleInputForm';
+import FrequencyInputForm from '../../components/main/frequencyInputForm copy/FrequencyInputForm';
+import DateInputForm from '../../components/main/dateInputForm/DateInputForm';
+import FeeInputForm from '../../components/main/feeInputForm copy/FeeInputForm';
+import AgeInputForm from '../../components/main/ageInputForm/AgeInputForm';
+import JoinInputForm from '../../components/main/joinInputForm/JoinInputForm';
+import ThumbnailInputForm from '../../components/main/thumbnailInputForm copy 2/ThumbnailInputForm';
 
 const Create = (): JSX.Element => {
   const [step, setStep] = useState(1);

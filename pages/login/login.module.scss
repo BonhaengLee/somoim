@@ -10,16 +10,12 @@
     min-height: 100vh;
     height: auto;
     .imageBox {
-      width: 50%;
-      min-width: 50%;
       @media #{$Small-Mobile} {
         display: none;
       }
       .imgWrapper {
-        width: 100%;
         img {
           vertical-align: bottom;
-          width: 50%;
           height: 505px;
           max-height: 505px;
           object-fit: fill;

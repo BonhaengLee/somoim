@@ -3,7 +3,7 @@ import router from 'next/router';
 import Image from 'next/image';
 // import banner from '../../public/assets/images/gather-banner.jpeg';
 import banner from '../../public/assets/images/gather-banner-flower.png';
-import LoginForm from '../../components/organisms/loginForm/LoginForm';
+import LoginForm from '../../components/main/loginForm/LoginForm';
 import styles from './login.module.scss';
 import { idCheckRgx, passwordCheckRgx } from '../../services/validationCheck';
 import { useAuth } from '../../lib/auth';

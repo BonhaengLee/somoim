@@ -3,8 +3,8 @@ import Link from 'next/link';
 import router from 'next/router';
 import styles from './NavLayout.module.scss';
 import { useAuth } from '../../lib/auth';
-import GetOutButton from '../../components/atoms/getOutButton/GetOutButton';
-import BorderButton from '../../components/atoms/borderButton/BorderButton';
+import GetOutButton from '../../components/global/getOutButton/GetOutButton';
+import BorderButton from '../../components/global/borderButton/BorderButton';
 
 const NavLayout = ({ children }: { children: JSX.Element }) => {
   const { user, logout } = useAuth(); // user 현재 jwt

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.scss';
 import banner from '../public/assets/images/gather-banner.jpeg';
 import banner2 from '../public/assets/images/gather-banner-flower.png';
-import Accordian from '../components/organisms/accordian/Accordian';
+import Accordian from '../components/main/accordian/Accordian';
 import NavLayout from './layout/NavLayout';
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);

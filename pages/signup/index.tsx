@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Router from 'next/router';
 import Image from 'next/image';
 import banner from '../../public/assets/images/gather-banner-flower.png';
-import UserDetails from '../../components/organisms/userDetails/UserDetails';
-import PersonalDetails from '../../components/organisms/personalDetails/PersonalDetails';
+import UserDetails from '../../components/main/userDetails/UserDetails';
+import PersonalDetails from '../../components/main/personalDetails/PersonalDetails';
 import styles from './signup.module.scss';
 import {
   emailCheckRgx,

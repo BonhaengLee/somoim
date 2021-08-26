@@ -79,8 +79,8 @@
     "react/self-closing-comp": 0,
     "react/react-in-jsx-scope": 0,
     "spaced-comment": 0,
-    "no-plusplus": 0
-
+    "no-plusplus": 0,
+    "import/prefer-default-export": "off"
   },
   "settings": {
     "react": {
