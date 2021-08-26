@@ -66,6 +66,7 @@
 }
 
 .bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer {
+  cursor: pointer;
   padding-bottom: 0;
   margin-bottom: -20px;
 }
@@ -86,9 +87,7 @@
           box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
   font-size: 1.3rem;
-  color: #757575;
   background: #ffffff;
-  font-style: italic;
 }
 
 .bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownHeader > div {
@@ -143,6 +142,10 @@
 .bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownListContainer .DropDownList .ListItem {
   list-style: none;
   margin-bottom: 0.8em;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownListContainer .DropDownList .ListItem:hover {
+  background: #e5e5e5;
 }
 
 .bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputFooter {

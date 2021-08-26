@@ -66,6 +66,7 @@
 }
 
 .bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer {
+  cursor: pointer;
   padding-bottom: 0;
   margin-bottom: -20px;
 }
@@ -86,9 +87,7 @@
           box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
   font-size: 1.3rem;
-  color: #757575;
   background: #ffffff;
-  font-style: italic;
 }
 
 .bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownHeader > div {
@@ -118,19 +117,18 @@
 }
 
 .bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownListContainer .DropDownList {
-  width: 360px;
+  width: 362px;
   height: 230px;
   position: absolute;
   padding: 0;
   margin: 0;
-  padding-left: 0.75em;
   background: #ffffff;
   border: 2px solid #e5e5e5;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: #000;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 1.3rem;
+  font-weight: 500;
   overflow-y: scroll;
   -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
           box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
@@ -143,6 +141,11 @@
 .bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownListContainer .DropDownList .ListItem {
   list-style: none;
   margin-bottom: 0.8em;
+  margin-right: .2em;
+}
+
+.bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputBody .AgeInputBox article .DropDownContainer .DropDownListContainer .DropDownList .ListItem:hover {
+  background: #e5e5e5;
 }
 
 .bodyInner.AgeInputWrapper .AgeInputFlexContainer .AgeInputContainer .AgeInputCard .AgeInputFooter {

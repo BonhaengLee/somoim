@@ -52,10 +52,6 @@ const Create = (): JSX.Element => {
   const handleChangeOption = (name, value) => {
     setCreateInput({ ...createInput, [name]: value });
   };
-
-  const handleChangeImg = (name, value) => {
-    setCreateInput({ ...createInput, [name]: value });
-  };
   // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   //   const { name, value } = e.target;
 

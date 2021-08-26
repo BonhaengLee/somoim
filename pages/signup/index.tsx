@@ -12,7 +12,7 @@ import {
   passwordCheckRgx,
 } from '../../services/validationCheck';
 
-const Signup = (): JSX.Element => {
+const index = (): JSX.Element => {
   const [step, setStep] = useState(1);
   const [signupInput, setSignupInput] = useState({
     id: '',
@@ -197,4 +197,4 @@ const Signup = (): JSX.Element => {
   );
 };
 
-export default Signup;
+export default index;
