@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 import Image from 'next/image';
+import axios from 'axios';
 import banner from '../../public/assets/images/gather-banner-flower.png';
 import styles from './create.module.scss';
 import CategoryInputForm from '../../components/main/categoryInputForm/CategoryInputForm';
 import ContentsInputForm from '../../components/main/contentsInputForm';
 import TitleInputForm from '../../components/main/titleInputForm/TitleInputForm';
-import FrequencyInputForm from '../../components/main/frequencyInputForm copy/FrequencyInputForm';
+import FrequencyInputForm from '../../components/main/frequencyInputForm/FrequencyInputForm';
 import DateInputForm from '../../components/main/dateInputForm/DateInputForm';
-import FeeInputForm from '../../components/main/feeInputForm copy/FeeInputForm';
+import FeeInputForm from '../../components/main/feeInputForm/FeeInputForm';
 import AgeInputForm from '../../components/main/ageInputForm/AgeInputForm';
 import JoinInputForm from '../../components/main/joinInputForm/JoinInputForm';
-import ThumbnailInputForm from '../../components/main/thumbnailInputForm copy 2/ThumbnailInputForm';
+import ThumbnailInputForm from '../../components/main/thumbnailInputForm/ThumbnailInputForm';
 
 const Create = (): JSX.Element => {
   const [step, setStep] = useState(1);
@@ -46,7 +47,19 @@ const Create = (): JSX.Element => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setCreateInput({ ...createInput, [name]: value });
+    if (name === 'category') {
+      const val =
+        (value === '운동' && 'CG_01') ||
+        (value === '공부' && 'CG_02') ||
+        (value === '생활습관' && 'CG_03') ||
+        (value === '취미' && 'CG_04') ||
+        (value === '감정관리' && 'CG_05') ||
+        (value === '돈관리' && 'CG_06') ||
+        (value === '외국어' && 'CG_07');
+      setCreateInput({ ...createInput, [name]: val });
+    } else {
+      setCreateInput({ ...createInput, [name]: value });
+    }
   };
 
   const handleChangeOption = (name, value) => {
@@ -82,14 +95,11 @@ const Create = (): JSX.Element => {
   // email : 이메일 형식만 가능
   const createMeeting = async () => {
     // try {
-    //   const r = await fetch(
-    //     `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/user/create`,
-    //     {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //       },
-    //       body: JSON.stringify({
+    //   const url = `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/board`;
+    //   axios
+    //     .post(
+    //       url,
+    //       JSON.stringify({
     //         category: createInput.category,
     //         content: createInput.content,
     //         fee: createInput.fee,
@@ -103,23 +113,66 @@ const Create = (): JSX.Element => {
     //         thumbnail: createInput.thumbnail,
     //         title: createInput.title,
     //       }),
-    //     }
-    //   );
-    //   const res = await r.json();
-
-    //   if (res.status === 200) {
-    //     console.log('개설 성공');
-    //     console.log(res.statusText);
-    //     // history.push('/login');
-    //     Router.push('/login');
-    //   } else {
-    //     console.log(res.statusText);
-    //     // alert((await res.json()).message);
-    //   }
+    //       {
+    //         headers: {
+    //           'Content-Type': 'application/json',
+    //           authorization: localStorage
+    //             .getItem('AccessToken')
+    //             .replaceAll('"', ''),
+    //         },
+    //       }
+    //     )
+    //     .then((res) => {
+    //       // console.warn(res.data);
+    //       console.dir(res);
+    //       // props.handleChange('thumbnail', res.data.Thumbnail_URL);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
     // } catch (err) {
     //   console.log(err);
     // }
-    console.log(createInput);
+    try {
+      const r = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/board`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            authorization: localStorage
+              .getItem('AccessToken')
+              .replaceAll('"', ''),
+          },
+          body: JSON.stringify({
+            category: createInput.category,
+            content: createInput.content,
+            fee: Number(createInput.fee),
+            finish_at: createInput.finishAt,
+            frequency: createInput.frequency,
+            max_age: createInput.maxAge,
+            min_age: createInput.minAge,
+            numOfPeople: createInput.numOfPeople,
+            place: createInput.place,
+            start_at: createInput.startAt,
+            thumbnail: createInput.thumbnail,
+            title: createInput.title,
+          }),
+        }
+      );
+      const res = await r.json();
+
+      if (res.status === 200) {
+        console.log('개설 성공');
+        console.log(res.statusText);
+      } else {
+        console.log(res.statusText);
+        // alert((await res.json()).message);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    console.log(createInput, 'fee', Number(createInput.fee));
   };
 
   const [disabledUserDt, setDisabledUserDt] = useState(true);
@@ -173,18 +226,23 @@ const Create = (): JSX.Element => {
     switch (step) {
       case 1:
         return (
-          // <CategoryInputForm
-          //   nextStep={nextStep}
-          //   values={createInput}
-          //   handleChange={handleChange}
-          //   // disabled={disabledUserDt}
-          // />
-          <ThumbnailInputForm
-            prevStep={prevStep}
+          <CategoryInputForm
             nextStep={nextStep}
             values={createInput}
-            handleChange={handleChangeOption}
+            handleChange={handleChange}
+            // disabled={disabledUserDt}
           />
+          // <ThumbnailInputForm
+          //   prevStep={prevStep}
+          //   nextStep={nextStep}
+          //   values={createInput}
+          //   handleChange={handleChangeOption}
+          // />
+          // <ContentsInputForm
+          //   createMeeting={createMeeting}
+          //   values={createInput}
+          //   handleChange={handleChangeOption}
+          // />
         );
       case 2:
         return (

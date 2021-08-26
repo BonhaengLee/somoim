@@ -22,6 +22,7 @@ const modules = {
     ],
     ['link', 'image', 'video'],
     ['clean'],
+    // [{ handlers: { image: imageHandler } }],
   ],
   clipboard: {
     // toggle to add extra line breaks when pasting HTML:
@@ -50,6 +51,10 @@ const formats = [
   'video',
 ];
 
+// interface HTMLInputEvent extends Event {
+//   target: HTMLInputElement & EventTarget;
+// }
+
 const ContentsInputForm = (props: {
   createMeeting: () => void;
   values: {
@@ -72,6 +77,36 @@ const ContentsInputForm = (props: {
   const onChange = (name, value) => {
     props.handleChange('content', value);
   };
+  // 이미지 제어
+  // function imageHandler() {
+  //   // input file tag 생성
+  //   const input = document.createElement('input');
+  //   input.setAttribute('type', 'file');
+  //   input.setAttribute('accept', '.png,.jpg,.jpeg');
+  //   input.click();
+
+  //   // input change
+  //   input.onchange = (e: HTMLInputEvent) => {
+  //     const formData = new FormData();
+  //     formData.append('files', e.target.files[0]);
+
+  //     // file 등록
+  //     const tempFile = api.file.postTempFileUpload(formData);
+  //     tempFile.then((response) => {
+  //       console.log(response);
+
+  //       // 커서 위치 및 fileSrno 얻기 ()
+  //       const { fileSrno } = response;
+  //       const range = this.quill.getSelection();
+
+  //       this.quill.insertEmbed(
+  //         range.index,
+  //         'image',
+  //         `http://localhost:8002/master/api/v1/upload/img/${fileSrno}`
+  //       );
+  //     });
+  //   };
+  // }
   return (
     <div className={`${styles.bodyInner} ${styles.ContentInputWrapper}`}>
       <div className={styles.ContentInputFlexContainer}>

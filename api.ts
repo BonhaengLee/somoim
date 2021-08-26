@@ -16,9 +16,8 @@ export async function handleApiResponse(response) {
 
   if (response.ok) {
     return data;
-  } else {
-    return Promise.reject(data);
   }
+  return Promise.reject(data);
 }
 
 // userprofile 넘어오는 유저 데이터 없음, jwt로 임시
