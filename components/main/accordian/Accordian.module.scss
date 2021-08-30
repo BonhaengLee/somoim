@@ -25,6 +25,7 @@
         flex: 1 1 100%;
       }
       img {
+        cursor: pointer;
         margin: 10px;
         height: 12.5vw;
         width: 20.83vw;
@@ -37,11 +38,15 @@
           width: 78vw;
         }
       }
+      p:first-of-type {
+        cursor: pointer;
+      }
       span {
         p {
           display: inline-block;
           margin-right: 4px;
           background: lightgray;
+          
         }
       }
     }

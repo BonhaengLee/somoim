@@ -2,6 +2,7 @@ import React from 'react';
 import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
+import { useQuery } from 'react-query';
 import styles from '../styles/Home.module.scss';
 import banner from '../public/assets/images/gather-banner.jpeg';
 import banner2 from '../public/assets/images/gather-banner-flower.png';
@@ -10,9 +11,43 @@ import NavLayout from './layout/NavLayout';
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
+const pageNum = 1;
+
+const category = 'CG_01';
+
+const translateC = (c) => {
+  const val =
+    (c === 'CG_01' && '운동') ||
+    (c === 'CG_02' && '공부') ||
+    (c === 'CG_03' && '생활습관') ||
+    (c === 'CG_04' && '취미') ||
+    (c === 'CG_05' && '감정관리') ||
+    (c === 'CG_06' && '돈관리') ||
+    (c === 'CG_07' && '외국어');
+  return val;
+};
+
+const fetchBoardListFromAPI = async () => {
+  // const res = await fetch('https://swapi.dev/api/people/');
+  // const res = await fetch(`/board/${category}/${pageNum}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/board/${category}/${pageNum}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('AccessToken').replaceAll('"', ''),
+      },
+    }
+  );
+  return res.json();
+};
 export default function Home(props: { imageDynamic: string }) {
   // console.log('home', props.imageDynamic);
   // const [photo, setPhoto] = useState();
+  const { data, status } = useQuery('board', fetchBoardListFromAPI);
+  console.log('data', data);
+  console.log('status', status);
 
   return (
     <main className={`${styles.bodyInner} ${styles.homeFlexContainer}`}>
@@ -68,23 +103,39 @@ export default function Home(props: { imageDynamic: string }) {
               <h2>모임 카테고리</h2>
               <ul>
                 {[
-                  { label: '운동', url: './assets/icons/icon-exercise.png' },
-                  { label: '공부', url: './assets/icons/icon-studying.png' },
+                  {
+                    label: '운동',
+                    code: 'CG_01',
+                    url: './assets/icons/icon-exercise.png',
+                  },
+                  {
+                    label: '공부',
+                    code: 'CG_02',
+                    url: './assets/icons/icon-studying.png',
+                  },
                   {
                     label: '생활습관',
+                    code: 'CG_03',
                     url: './assets/icons/icon-lifestyle.png',
                   },
-                  { label: '취미', url: './assets/icons/icon-hobby.png' },
+                  {
+                    label: '취미',
+                    code: 'CG_04',
+                    url: './assets/icons/icon-hobby.png',
+                  },
                   {
                     label: '감정관리',
+                    code: 'CG_04',
                     url: './assets/icons/icon-mindControl.png',
                   },
                   {
                     label: '돈관리',
+                    code: 'CG_05',
                     url: './assets/icons/icon-financialManagement.png',
                   },
                   {
                     label: '외국어',
+                    code: 'CG_06',
                     url: './assets/icons/icon-foreignLanguage.png',
                   },
                 ].map((item, idx) => (
@@ -103,7 +154,7 @@ export default function Home(props: { imageDynamic: string }) {
             </article>
           </section>
           <section className={styles.homeItemList}>
-            <Accordian />
+            {status === 'success' && <Accordian data={data} />}
           </section>
         </div>
       </div>
