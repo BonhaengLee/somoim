@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Tabs from '../tabs/Tabs';
 import styles from './Accordian.module.scss';
 import banner from '../../../public/assets/images/gather-banner.jpeg';
@@ -47,17 +48,19 @@ const Accordian = (props): JSX.Element => {
       <Tabs tabItems={tabItems} onChange={handleChange} />
       <section>
         {changeTab?.map((item) => (
-          <article key={item.id}>
-            <Image src={banner} alt="" />
-            {/* * :s3 error 해결 해야함 next.config.js? */}
-            <p>{item.title}</p>
-            <p>{parseStartAt(item.created_at)}~</p>
-            {/* {item.tags.map((tag) => (
+          <Link href={`/meetings/${item.id}`} key={item.id}>
+            <article>
+              <Image src={banner} alt="" />
+              {/* * :s3 error 해결 해야함 next.config.js? */}
+              <p>{item.title}</p>
+              <p>{parseStartAt(item.created_at)}~</p>
+              {/* {item.tags.map((tag) => (
               <span key={tag}>
                 <p>{tag}</p>
               </span>
             ))} */}
-          </article>
+            </article>
+          </Link>
         ))}
       </section>
     </article>
