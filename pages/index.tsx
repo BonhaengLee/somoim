@@ -15,18 +15,6 @@ const pageNum = 1;
 
 const category = 'CG_01';
 
-const translateC = (c) => {
-  const val =
-    (c === 'CG_01' && '운동') ||
-    (c === 'CG_02' && '공부') ||
-    (c === 'CG_03' && '생활습관') ||
-    (c === 'CG_04' && '취미') ||
-    (c === 'CG_05' && '감정관리') ||
-    (c === 'CG_06' && '돈관리') ||
-    (c === 'CG_07' && '외국어');
-  return val;
-};
-
 const fetchBoardListFromAPI = async () => {
   // const res = await fetch('https://swapi.dev/api/people/');
   // const res = await fetch(`/board/${category}/${pageNum}`);

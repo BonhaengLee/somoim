@@ -1,0 +1,202 @@
+.header2 {
+	font-family: "Poppins";
+	font-size: 36px;
+
+	margin-bottom: 15px;
+}
+
+.header3 {
+	font-size: 24px;
+	font-weight: 500;
+	color: rgba(34, 34, 34, 0.5);
+
+	margin-bottom: 25px;
+	margin-top: 0px;
+	div {
+		section {
+			display: inline-block;
+			img {
+				height: 20px;
+				width: 20px;
+				vertical-align: middle;
+			}
+			p {
+				display: inline-block;
+				font-size: 20px;
+				color: black;
+				margin-left: 10px;
+				vertical-align: bottom;
+				margin-right: 15px;
+			}
+		}
+	}
+}
+
+// .header3,
+// ,
+// p {
+// 	font-family: "Avenir";
+// }
+
+.info {
+	padding-bottom : 200px;
+}
+
+.thumbnailContainer,
+.info,
+.back,
+.contentSection {
+	margin: 60px 100px 0px;
+	max-width: 900px;
+	display: flex;
+	overflow-x: hidden;
+}
+
+// .back {
+// 	display: flex;
+// 	align-items: center;
+// 	color: rgba(34, 34, 34, 0.5);
+// }
+
+// .back i {
+// 	margin-right: 15px;
+// }
+
+.thumbnailImg {
+	height: 400px;
+	width: 300px;
+	border-radius: 40px;
+
+	object-fit: cover;
+	object-position: 50% 50%;
+
+	background-position: 40% 50%;
+}
+
+.flag_wrapper {
+	width: 50px;
+	height: 50px;
+	// background-color: #f2f2f2;
+	// border-radius: 100%;
+	// position: relative;
+	// top: -70px;
+	// left: 230px;
+}
+
+.flag {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto auto;
+}
+
+.description {
+	margin-bottom: 30px;
+	margin-top: 0px;
+}
+
+.thumbnailImgSection {
+	margin-right: 50px;
+}
+
+.thumbnailDescSection {
+	display: flex;
+	flex-direction: column;
+
+	margin-left: 50px;
+}
+
+.interests_item {
+	display: inline-block;
+	padding: 5px 15px;
+	margin-right: 7.5px;
+	margin-bottom: 10px;
+	line-height: 35px;
+	background-color: #e6e6e6;
+	border-radius: 5px;
+
+	color: rgba(34, 34, 34, 0.5);
+}
+
+.contentSection {
+	margin-bottom: 50px;
+}
+
+.info {
+	margin-left: 100px;
+}
+
+.link_img_wrapper {
+	width: 40px;
+	height: 40px;
+	background-color: #f2f2f2;
+	border-radius: 10px;
+	position: relative;
+}
+
+.link_img {
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto auto;
+}
+
+.ulCustom {
+	padding: 0px;
+}
+
+.liCustom {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 5px;
+}
+
+.liCustom .pCustom {
+	margin-left: 30px;
+	color: rgba(34, 34, 34, 0.5);
+}
+
+@media screen and (max-width: 1000px) {
+	.thumbnailContainer,
+	.info,
+	.back {
+		margin: 60px 33px 0px;
+	}
+
+	.thumbnailContainer {
+		flex-direction: column;
+	}
+
+	.thumbnailImgSection {
+		margin: 0 auto;
+	}
+
+	.thumbnailImg {
+		width: 300px;
+		height: 300px;
+		border-radius: 100%;
+	}
+
+	.flag_wrapper {
+	}
+
+	.thumbnailDescSection {
+		margin-left: 0px;
+		margin-bottom: 10px;
+		margin-top: -40px;
+	}
+
+	.info {
+		margin-top: 10px;
+		margin-left: 33px;
+	}
+}

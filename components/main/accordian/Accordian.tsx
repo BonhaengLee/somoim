@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Tabs from '../tabs/Tabs';
 import styles from './Accordian.module.scss';
 import banner from '../../../public/assets/images/gather-banner.jpeg';
+import parseCreatedAt from '../../../services/parseCreatedAt';
 
 const tabItems = [
   '운동',
@@ -14,12 +15,6 @@ const tabItems = [
   '돈관리',
   '외국어',
 ];
-
-const parseStartAt = (d) => {
-  const b = d.split(/\D+/);
-  return `${b[0]}.${b[1]}.${b[2]} `;
-  //String(new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6])));
-};
 
 const Accordian = (props): JSX.Element => {
   const [changeTab, setChangeTab] = useState(props.data);
@@ -53,7 +48,7 @@ const Accordian = (props): JSX.Element => {
               <Image src={banner} alt="" />
               {/* * :s3 error 해결 해야함 next.config.js? */}
               <p>{item.title}</p>
-              <p>{parseStartAt(item.created_at)}~</p>
+              <p>{parseCreatedAt(item.created_at)}~</p>
               {/* {item.tags.map((tag) => (
               <span key={tag}>
                 <p>{tag}</p>
