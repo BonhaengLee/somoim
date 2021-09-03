@@ -158,6 +158,9 @@
 	flex-direction: row;
 	align-items: center;
 	margin-bottom: 5px;
+	.pCustom {
+		word-break: keep-all;  
+	}
 }
 
 .liCustom .pCustom {
@@ -168,8 +171,13 @@
 @media screen and (max-width: 1000px) {
 	.thumbnailContainer,
 	.info,
-	.back {
+	.back,
+	.contentSection {
 		margin: 60px 33px 0px;
+	}
+
+	.contentSection {
+		margin-bottom: 50px;
 	}
 
 	.thumbnailContainer {

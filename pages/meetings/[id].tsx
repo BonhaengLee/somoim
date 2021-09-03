@@ -68,7 +68,7 @@ const MeetingDetails = ({ params }) => {
                   </section>
                   <section>
                     <img src="/assets/icons/content-writing.svg" alt="" />
-                    <p>{parseCreatedAt(data?.created_at)}</p>
+                    <p>{data && parseCreatedAt(data?.created_at)}</p>
                   </section>
                 </div>
               </h3>
@@ -89,7 +89,6 @@ const MeetingDetails = ({ params }) => {
 
           <section className={styles.contentSection}>
             <div
-              className="notice-contents"
               dangerouslySetInnerHTML={{
                 __html: data?.content,
               }}
