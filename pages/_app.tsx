@@ -1,4 +1,5 @@
 import React from 'react';
+import 'react-quill/dist/quill.snow.css';
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import MainLayout from './layout/MainLayout';
 import '../styles/globals.scss';
@@ -7,7 +8,7 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
-import 'react-quill/dist/quill.snow.css';
+
 import { AuthProvider } from '../lib/auth';
 import { ReactQueryProvider } from '../lib/ReactQueryProvider';
 import DefaultLayout from './layout/DefaultLayout';

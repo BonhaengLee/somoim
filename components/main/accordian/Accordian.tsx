@@ -5,6 +5,7 @@ import Tabs from '../tabs/Tabs';
 import styles from './Accordian.module.scss';
 import banner from '../../../public/assets/images/gather-banner.jpeg';
 import parseCreatedAt from '../../../services/parseCreatedAt';
+import Paging from '../../global/paging/Paging';
 
 const tabItems = [
   '운동',
@@ -41,22 +42,27 @@ const Accordian = (props): JSX.Element => {
     <article className={styles.accordianContainer}>
       <h2>모임</h2>
       <Tabs tabItems={tabItems} onChange={handleChange} />
-      <section>
+      <ul className={styles.posts}>
         {changeTab?.map((item) => (
-          <Link href={`/meetings/${item.id}`} key={item.id}>
-            <article>
-              <Image src={banner} alt="" />
-              {/* * :s3 error 해결 해야함 next.config.js? */}
-              <p>{item.title}</p>
-              <p>{parseCreatedAt(item.created_at)}~</p>
-              {/* {item.tags.map((tag) => (
+          <li key={item.id}>
+            <Link href={`/meetings/${item.id}`}>
+              <div>
+                <Image src={banner} alt="" />
+                {/* * :s3 error 해결 해야함 next.config.js? */}
+                <p>{item.title}</p>
+                <p>{parseCreatedAt(item.created_at)}~</p>
+                {/* {item.tags.map((tag) => (
               <span key={tag}>
                 <p>{tag}</p>
               </span>
             ))} */}
-            </article>
-          </Link>
+              </div>
+            </Link>
+          </li>
         ))}
+      </ul>
+      <section className={styles.postsPaging}>
+        <Paging />
       </section>
     </article>
   );
