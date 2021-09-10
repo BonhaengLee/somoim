@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
-import { queryClient } from '../../lib/ReactQueryProvider';
 import NavLayout from '../layout/NavLayout';
 import styles from './meetings.module.scss';
 import translateCategory from '../../services/translateCategory';
@@ -22,7 +21,7 @@ const fetchMeetingFromAPI = async (id: string) => {
   return res.json();
 };
 
-const MeetingDetails = ({ params }) => {
+const MeetingDetails = () => {
   const router = useRouter();
   const { id } = router.query;
   const { data, status } = useQuery(
@@ -48,19 +47,13 @@ const MeetingDetails = ({ params }) => {
                   alt="thumbnail"
                 />
               )}
-              <div className={styles.flag_wrapper}>
-                {/* <img
-                  className={styles.flag}
-                  src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/flag-south-korea_1f1f0-1f1f7.png"
-                  alt="South Korean Flag"
-                /> */}
-              </div>
+              <div className={styles.flag_wrapper} />
             </div>
 
             <div className={styles.thumbnailDescSection}>
               <h2 className={styles.header2}>{data?.title}</h2>
               <h3 className={styles.header3}>
-                {translateCategory(data?.category)}
+                {data && translateCategory(data?.category)}
                 <div>
                   <section>
                     <img src="/assets/icons/user.svg" alt="" />
