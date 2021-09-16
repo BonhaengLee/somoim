@@ -142,6 +142,7 @@ export default function Home(props: { imageDynamic: string }) {
             </article>
           </section>
           <section className={styles.homeItemList}>
+            {status === 'loading' && <div> ... loading </div>}
             {status === 'success' && <Tabs data={data} />}
           </section>
         </div>
