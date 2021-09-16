@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import NavLayout from '../layout/NavLayout';
-import styles from './meetings.module.scss';
+import styles from './meetingDetails.module.scss';
 import translateCategory from '../../services/translateCategory';
 import parseCreatedAt from '../../services/parseCreatedAt';
 
@@ -28,11 +28,12 @@ const MeetingDetails = () => {
     ['meet', id],
     () => id && fetchMeetingFromAPI(String(id)),
     {
-      staleTime: 10000,
+      staleTime: 100,
     }
   );
 
   console.log(data, id);
+  console.log(status);
 
   return (
     <>
@@ -53,19 +54,33 @@ const MeetingDetails = () => {
             <div className={styles.thumbnailDescSection}>
               <h2 className={styles.header2}>{data?.title}</h2>
               <h3 className={styles.header3}>
-                {data && translateCategory(data?.category)}
+                <div className={styles.category}>
+                  <img
+                    src="https://img.icons8.com/material/24/000000/opened-folder--v1.png"
+                    alt=""
+                  />
+                  <p>{data && translateCategory(data?.category)}</p>
+                </div>
                 <div>
                   <section>
-                    <img src="/assets/icons/user.svg" alt="" />
+                    <img
+                      src="https://img.icons8.com/plumpy/24/000000/person-male--v1.png"
+                      alt=""
+                    />
                     <p>{data?.author}</p>
                   </section>
                   <section>
-                    <img src="/assets/icons/content-writing.svg" alt="" />
+                    <img
+                      src="https://img.icons8.com/ios/50/000000/inscription.png"
+                      alt=""
+                    />
                     <p>{data && parseCreatedAt(data?.created_at)}</p>
                   </section>
                 </div>
               </h3>
-              <p className={styles.description}>
+
+              {/* * : 간단 모임 소개 추가시 description & 태그 정보 추가시 interests */}
+              {/* <p className={styles.description}>
                 Duis aute irure dolor in reprehenderit in voluptate velit esse
                 cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in
                 reprehenderit in voluptate velit esse cillum dolore eu fugiat
@@ -76,7 +91,7 @@ const MeetingDetails = () => {
                 <span className={styles.interests_item}>Technology</span>
                 <span className={styles.interests_item}>Management</span>
                 <span className={styles.interests_item}>Leadership</span>
-              </div>
+              </div> */}
             </div>
           </section>
 
@@ -94,7 +109,7 @@ const MeetingDetails = () => {
                 <div className={styles.link_img_wrapper}>
                   <img
                     className={styles.link_img}
-                    src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/round-pushpin_1f4cd.png"
+                    src="https://img.icons8.com/color-glass/48/000000/money.png"
                     alt=""
                   />
                 </div>
@@ -104,7 +119,7 @@ const MeetingDetails = () => {
                 <div className={styles.link_img_wrapper}>
                   <img
                     className={styles.link_img}
-                    src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/speaking-head_1f5e3-fe0f.png"
+                    src="https://img.icons8.com/dusk/64/000000/meeting.png"
                     alt=""
                   />
                 </div>
@@ -114,7 +129,7 @@ const MeetingDetails = () => {
                 <div className={styles.link_img_wrapper}>
                   <img
                     className={styles.link_img}
-                    src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/samsung/265/globe-with-meridians_1f310.png"
+                    src="https://img.icons8.com/office/16/000000/place-marker--v2.png"
                     alt=""
                   />
                 </div>
@@ -125,7 +140,7 @@ const MeetingDetails = () => {
                 <div className={styles.link_img_wrapper}>
                   <img
                     className={styles.link_img}
-                    src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/round-pushpin_1f4cd.png"
+                    src="https://img.icons8.com/office/16/000000/date-span.png"
                     alt=""
                   />
                 </div>
@@ -137,7 +152,7 @@ const MeetingDetails = () => {
                 <div className={styles.link_img_wrapper}>
                   <img
                     className={styles.link_img}
-                    src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/speaking-head_1f5e3-fe0f.png"
+                    src="https://img.icons8.com/doodle/48/000000/age-timeline.png"
                     alt=""
                   />
                 </div>
@@ -149,7 +164,7 @@ const MeetingDetails = () => {
                 <div className={styles.link_img_wrapper}>
                   <img
                     className={styles.link_img}
-                    src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/samsung/265/globe-with-meridians_1f310.png"
+                    src="https://img.icons8.com/color/48/000000/conference-call.png"
                     alt=""
                   />
                 </div>

@@ -6,7 +6,7 @@ import { useQuery } from 'react-query';
 import styles from '../styles/Home.module.scss';
 import banner from '../public/assets/images/gather-banner.jpeg';
 import banner2 from '../public/assets/images/gather-banner-flower.png';
-import Accordian from '../components/main/accordian/Accordian';
+import Tabs from '../components/main/tabs/Tabs';
 import NavLayout from './layout/NavLayout';
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);
@@ -142,7 +142,7 @@ export default function Home(props: { imageDynamic: string }) {
             </article>
           </section>
           <section className={styles.homeItemList}>
-            {status === 'success' && <Accordian data={data} />}
+            {status === 'success' && <Tabs data={data} />}
           </section>
         </div>
       </div>
