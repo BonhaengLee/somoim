@@ -38,12 +38,6 @@ const Tabs = (props): JSX.Element => {
     }
   };
 
-  const [page, setPage] = useState(1);
-  const handlePageChange = (p) => {
-    setPage(p);
-    console.log(p);
-  };
-
   return (
     <article className={styles.tabsContainer}>
       <h2>모임</h2>
@@ -68,7 +62,8 @@ const Tabs = (props): JSX.Element => {
         ))}
       </ul>
       <section className={styles.postsPaging}>
-        <Paging page={page} count={1} setPage={handlePageChange} />
+        {/* count = itemsCountPerPage(12) * # of page  (count*page) */}
+        <Paging page={props.page} count={11} setPage={props.handlePageChange} />
       </section>
     </article>
   );

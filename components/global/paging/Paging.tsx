@@ -5,9 +5,9 @@ import styles from './Paging.module.scss';
 const Paging = ({ page, count, setPage }): JSX.Element => (
   <Pagination
     activePage={page}
-    itemsCountPerPage={10}
+    itemsCountPerPage={12}
     totalItemsCount={count}
-    pageRangeDisplayed={5}
+    pageRangeDisplayed={6}
     prevPageText="‹"
     nextPageText="›"
     onChange={setPage}

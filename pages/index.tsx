@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
@@ -11,29 +11,38 @@ import NavLayout from './layout/NavLayout';
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
-const pageNum = 1;
-
 const category = 'CG_01';
 
-const fetchBoardListFromAPI = async () => {
+const fetchBoardListFromAPI = async (pgNum) => {
   // const res = await fetch('https://swapi.dev/api/people/');
-  // const res = await fetch(`/board/${category}/${pageNum}`);
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/board/${category}/${pageNum}`,
+    `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/board/${category}/${pgNum}`,
     {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        authorization: localStorage.getItem('AccessToken').replaceAll('"', ''),
       },
     }
   );
   return res.json();
 };
 export default function Home(props: { imageDynamic: string }) {
-  // console.log('home', props.imageDynamic);
   // const [photo, setPhoto] = useState();
-  const { data, status } = useQuery('board', fetchBoardListFromAPI);
+  const [page, setPage] = useState(1);
+  const handlePageChange = (p) => {
+    setPage(p);
+    console.log(p);
+  };
+
+  const { data, status } = useQuery(
+    ['board', page],
+    () => fetchBoardListFromAPI(page)
+    // {
+    //   initialData: {
+    //     id: -1,
+    //   },
+    // }
+  );
   console.log('data', data);
   console.log('status', status);
 
@@ -142,7 +151,13 @@ export default function Home(props: { imageDynamic: string }) {
             </article>
           </section>
           <section className={styles.homeItemList}>
-            {status === 'success' && <Tabs data={data} />}
+            {status === 'success' && (
+              <Tabs
+                data={data}
+                page={page}
+                handlePageChange={handlePageChange}
+              />
+            )}
           </section>
         </div>
       </div>

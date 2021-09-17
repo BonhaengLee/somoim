@@ -14,7 +14,6 @@ const fetchMeetingFromAPI = async (id: string) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        authorization: localStorage.getItem('AccessToken').replaceAll('"', ''),
       },
     }
   );
