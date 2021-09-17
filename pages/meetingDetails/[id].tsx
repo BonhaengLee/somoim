@@ -36,6 +36,7 @@ const MeetingDetails = () => {
 
   return (
     <>
+      {status === 'loading' && <div> ... loading </div>}
       {status === 'success' && (
         <>
           <section className={styles.thumbnailContainer}>
