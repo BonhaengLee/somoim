@@ -6,6 +6,7 @@ import NavLayout from '../layout/NavLayout';
 import styles from './meetingDetails.module.scss';
 import translateCategory from '../../services/translateCategory';
 import parseCreatedAt from '../../services/parseCreatedAt';
+import CommentsContainer from '../../components/main/commentsContainer/CommentsContainer';
 
 const fetchMeetingFromAPI = async (id: string) => {
   const res = await fetch(
@@ -20,9 +21,24 @@ const fetchMeetingFromAPI = async (id: string) => {
   return res.json();
 };
 
+const pageNum = 1;
+const fetchCommentsFromAPI = async (id: string) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/board/${id}/reply/${pageNum}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+  return res.json();
+};
+
 const MeetingDetails = () => {
   const router = useRouter();
   const { id } = router.query;
+
   const { data, status } = useQuery(
     ['meet', id],
     () => id && fetchMeetingFromAPI(String(id)),
@@ -30,9 +46,17 @@ const MeetingDetails = () => {
       staleTime: 100,
     }
   );
+  const { data: comments, status: commentsStatus } = useQuery(
+    ['comments', id],
+    () => id && fetchCommentsFromAPI(String(id)),
+    {
+      staleTime: 100,
+    }
+  );
 
-  console.log(data, id);
-  console.log(status);
+  console.log(id, 'data', data);
+  console.log('comments', comments);
+  console.log('data', status, 'comments', commentsStatus);
 
   return (
     <>
@@ -103,7 +127,7 @@ const MeetingDetails = () => {
             />
           </section>
 
-          <div className={styles.info}>
+          <section className={styles.info}>
             <ul className={styles.ulCustom}>
               <li className={styles.liCustom}>
                 <div className={styles.link_img_wrapper}>
@@ -171,7 +195,14 @@ const MeetingDetails = () => {
                 <p className={styles.pCustom}>모집인원 : {data?.numOfPeople}</p>
               </li>
             </ul>
-          </div>
+          </section>
+
+          <article className={styles.commentsContainer}>
+            {commentsStatus === 'loading' && <div> ... loading </div>}
+            {commentsStatus === 'success' && (
+              <CommentsContainer comments={comments} />
+            )}
+          </article>
         </>
       )}
     </>

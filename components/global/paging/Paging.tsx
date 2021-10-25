@@ -7,7 +7,7 @@ const Paging = ({ page, count, setPage }): JSX.Element => (
     activePage={page}
     itemsCountPerPage={12}
     totalItemsCount={count}
-    pageRangeDisplayed={6}
+    pageRangeDisplayed={12}
     prevPageText="‹"
     nextPageText="›"
     onChange={setPage}

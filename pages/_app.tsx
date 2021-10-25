@@ -1,6 +1,5 @@
 import React from 'react';
 import 'react-quill/dist/quill.snow.css';
-import { AppProps } from 'next/dist/shared/lib/router/router';
 import MainLayout from './layout/MainLayout';
 import '../styles/globals.scss';
 import '../styles/reset.css';

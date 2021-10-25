@@ -22,7 +22,7 @@
       @media (max-width: 800px) {
         flex: 1 0 50%;
       }
-      @media (max-width: 600px) {
+      @media (max-width: 500px) {
         flex: 1 0 0%;
       }
     }
@@ -36,24 +36,30 @@
       @media (max-width: 800px) {
         flex: 1 0 50%;
       }
-      @media (max-width: 600px) {
+      @media (max-width: 500px) {
         flex: 1 0 100%;
       }
       img {
         cursor: pointer;
-        height: 12.5vw;
-        width: 20.83vw;
+        height: 17vw;
+        width: 19vw;
+        // height: 200px;
+        // width: 200px;
         @media (max-width: 1000px) {
-          height: 20vw;
-          width: 78vw;
+          height: 17vw;
+          width: 25vw;
         }
         @media (max-width: 800px) {
-          height: 30vw;
-          width: 78vw;
+          height: 22vw;
+          width: 37vw;
         }
         @media (max-width: 600px) {
+          height: 24vw;
+          width: 37vw;
+        }
+        @media (max-width: 500px) {
           height: 40vw;
-          width: 78vw;
+          width: 60vw;
         }
       }
       p:first-of-type {

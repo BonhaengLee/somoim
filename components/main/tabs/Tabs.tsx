@@ -47,7 +47,11 @@ const Tabs = (props): JSX.Element => {
           <li key={item.id}>
             <Link href={`/meetingDetails/${item.id}`}>
               <div>
-                <Image src={banner} alt="" />
+                <img
+                  className={styles.thumbnailImg}
+                  src={item.thumbnail} //"https://cdn.idntimes.com/content-images/community/2020/10/122163576-262420488513552-863075192792965334-n-f95e3dd6d25d3618eb9f1b3b9bcc5796.jpg"
+                  alt="thumbnail"
+                />
                 {/* * :s3 error 해결 해야함 next.config.js? */}
                 <p>{item.title}</p>
                 <p>{parseCreatedAt(item.created_at)}~</p>
@@ -63,7 +67,7 @@ const Tabs = (props): JSX.Element => {
       </ul>
       <section className={styles.postsPaging}>
         {/* count = itemsCountPerPage(12) * # of page  (count*page) */}
-        <Paging page={props.page} count={11} setPage={props.handlePageChange} />
+        <Paging page={props.page} count={12} setPage={props.handlePageChange} />
       </section>
     </article>
   );

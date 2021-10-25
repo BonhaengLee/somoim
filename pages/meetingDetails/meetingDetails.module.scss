@@ -1,7 +1,8 @@
 .thumbnailContainer,
 .info,
 .back,
-.contentSection {
+.contentSection,
+.commentsContainer {
 	margin: 60px 100px 0px;
 	max-width: 900px;
 	display: flex;
@@ -153,7 +154,7 @@
 }
 
 .info {
-	padding-bottom : 200px;
+	padding-bottom : 25px;
 	margin-left: 100px;
 	@media screen and (max-width: 1000px) {
 		margin-top: 10px;
@@ -188,4 +189,11 @@
 			}
 		}
 	}
+}
+
+.commentsContainer {
+	border: 1px solid rgb(220, 220, 244);
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
 }
